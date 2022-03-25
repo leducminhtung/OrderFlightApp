@@ -37,8 +37,8 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
     NumberPicker hanhkhach;
 
     final Calendar ngaydiCalendar= Calendar.getInstance();
-    final Calendar ngaydenCalendar= Calendar.getInstance();
-    CheckBox checkBox;
+    final Calendar ngayveCalendar= Calendar.getInstance();
+    CheckBox checkBox, ckbvethuong, ckbveTG;
 
     AutoCompleteTextView NoiDen,NoiDi,NgayVe,NgayDi;
     @Override
@@ -46,10 +46,11 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
 
+        init();
         //numberpicker
         hanhkhach = findViewById(R.id.numpickAdult);
         hanhkhach.setMinValue(0);
-        hanhkhach.setMaxValue(5);
+        hanhkhach.setMaxValue(4);
 
         hanhkhach.setFormatter(new NumberPicker.Formatter() {
             @Override
@@ -81,16 +82,16 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
         DatePickerDialog.OnDateSetListener datelichve =new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
-                ngaydenCalendar.set(Calendar.YEAR, year);
-                ngaydenCalendar.set(Calendar.MONTH,month);
-                ngaydenCalendar.set(Calendar.DAY_OF_MONTH,day);
+                ngayveCalendar.set(Calendar.YEAR, year);
+                ngayveCalendar.set(Calendar.MONTH,month);
+                ngayveCalendar.set(Calendar.DAY_OF_MONTH,day);
                 updateLabel();
             }
         };
         NgayVe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new DatePickerDialog(BookingActivity.this,datelichve,ngaydenCalendar.get(Calendar.YEAR),ngaydenCalendar.get(Calendar.MONTH),ngaydenCalendar.get(Calendar.DAY_OF_MONTH)).show();
+                new DatePickerDialog(BookingActivity.this,datelichve,ngayveCalendar.get(Calendar.YEAR),ngayveCalendar.get(Calendar.MONTH),ngayveCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
     }
@@ -98,13 +99,17 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
         String myFormat="dd/MM/yyyy";
         SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.SIMPLIFIED_CHINESE);
         NgayDi.setText(dateFormat.format(ngaydiCalendar.getTime()));
-        NgayVe.setText(dateFormat.format(ngaydenCalendar.getTime()));
+        NgayVe.setText(dateFormat.format(ngayveCalendar.getTime()));
     }
 
-    public void UpValueAdult(View view) {
+    public void UpValue(View view) {
+        int sohientai = hanhkhach.getValue();
+        hanhkhach.setValue(sohientai+1);
     }
 
-    public void DownValueAdult(View view) {
+    public void DownValue(View view) {
+        int sohientai = hanhkhach.getValue();
+        hanhkhach.setValue(sohientai-1);
     }
 
     public void GoToHome2(View view) {
@@ -114,6 +119,75 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
 
     public void GoToListFlights(View view) {
     }
+    public void init(){
+        checkBox = findViewById(R.id.pa);
+        checkBox.setOnCheckedChangeListener(mLinear);
+        ckbvethuong = findViewById(R.id.vethuong);
+        ckbvethuong.setOnCheckedChangeListener(mLinear1);
+        ckbveTG = findViewById(R.id.vethuonggia);
+        ckbveTG.setOnCheckedChangeListener(mLinear2);
+        NgayVe = findViewById(R.id.txtNgayVe);
+        NgayDi = findViewById(R.id.txtNgayDi);
+        NoiDen = findViewById(R.id.txtNoiDen);
+        NoiDi =  findViewById(R.id.txtNoiDi);
+    }
+    CompoundButton.OnCheckedChangeListener mLinear = new CompoundButton.OnCheckedChangeListener() {
+        @SuppressLint("WrongConstant")
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if(isChecked){
+                Toast.makeText(BookingActivity.this,
+                        "Bạn đã chọn : " + buttonView.getText().toString(),
+                        Toast.LENGTH_SHORT).show();
+                NgayVe.setEnabled(true);
+            }
+            else
+            {
+                Toast.makeText(BookingActivity.this,
+                        "Bạn hủy chọn : " + buttonView.getText().toString(),
+                        Toast.LENGTH_SHORT).show();
+                NgayVe.setEnabled(false);
+            }
+        }
+    };
+    CompoundButton.OnCheckedChangeListener mLinear1 = new CompoundButton.OnCheckedChangeListener() {
+        @SuppressLint("WrongConstant")
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if(isChecked){
+                Toast.makeText(BookingActivity.this,
+                        "Bạn đã chọn : " + buttonView.getText().toString(),
+                        Toast.LENGTH_SHORT).show();
+                ckbveTG.setEnabled(false);
+            }
+            else
+            {
+                Toast.makeText(BookingActivity.this,
+                        "Bạn hủy chọn : " + buttonView.getText().toString(),
+                        Toast.LENGTH_SHORT).show();
+                ckbveTG.setEnabled(true);
+            }
+        }
+    };
+    CompoundButton.OnCheckedChangeListener mLinear2 = new CompoundButton.OnCheckedChangeListener() {
+        @SuppressLint("WrongConstant")
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if(isChecked){
+                Toast.makeText(BookingActivity.this,
+                        "Bạn đã chọn : " + buttonView.getText().toString(),
+                        Toast.LENGTH_SHORT).show();
+                ckbvethuong.setEnabled(false);
+            }
+            else
+            {
+                Toast.makeText(BookingActivity.this,
+                        "Bạn hủy chọn : " + buttonView.getText().toString(),
+                        Toast.LENGTH_SHORT).show();
+                ckbvethuong.setEnabled(true);
+            }
+        }
+    };
 
 
     @Override
