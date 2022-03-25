@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">OrderFlightApp</string>
+    <string name="select">NƠI ĐI</string>
+    <string name="select1">NƠI ĐẾN</string>
+    <string name="select2">NGÀY GIỜ ĐI</string>
+    <string name="select3">NGÀY GIỜ VỀ</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+</resources>

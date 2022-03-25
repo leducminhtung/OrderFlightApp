@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_white_1000"
+    android:orientation="vertical"
+    tools:context=".Index">
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:background="@drawable/header_background"
+        android:layout_marginBottom="5dp"
+        >
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="80dp"
+            android:layout_marginRight="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_fly" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xin chào"
+            android:fontFamily="@font/baloo"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@color/md_white_1000"
+            android:gravity="center"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            tools:ignore="ExtraText"
+            android:textSize="20dp"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Le Duc Minh Tung"
+                android:fontFamily="@font/baloo"
+                android:layout_marginRight="10dp"
+                android:backgroundTint="@color/md_white_1000"
+                android:gravity="center"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                tools:ignore="ExtraText"
+                android:textSize="20dp"
+                />
+
+
+        <!--        <Button-->
+<!--            android:id="@+id/btnBooking"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginRight="5dp"-->
+<!--            android:backgroundTint="@color/md_white_1000"-->
+<!--            android:fontFamily="@font/baloo"-->
+<!--            android:minWidth="48dp"-->
+<!--            android:minHeight="48dp"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:onClick="GoToBooking"-->
+<!--            android:text="Booking Flight"-->
+<!--            tools:ignore="ExtraText" />-->
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/md_grey_200">
+
+        <LinearLayout
+            android:id="@+id/layoutFlights"
+            android:layout_width="175dp"
+            android:layout_height="187dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/white_rectangle_background"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="15dp"
+
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintEnd_toStartOf="@+id/layoutFlightToHotel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/app_name"
+                android:onClick="GoToBooking"
+                android:padding="8dp"
+                android:src="@drawable/booking" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:minHeight="48dp"
+                android:onClick="GoToBooking"
+                android:text="Đặt vé"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutFlightToHotel"
+            android:layout_width="166dp"
+            android:layout_height="188dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/white_rectangle_background"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="15dp"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/layoutFlights"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/app_name"
+                android:padding="8dp"
+                android:src="@drawable/group" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:onClick="BuyForGroup"
+                android:text="Đặt theo nhóm"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutFlights1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/white_rectangle_background"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="15dp"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintEnd_toStartOf="@+id/layoutFlightToHotel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutFlights">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/app_name"
+                android:padding="8dp"
+                android:src="@drawable/changeuser" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:text="Đổi người dùng"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutFlightToHotel1"
+            android:layout_width="167dp"
+            android:layout_height="170dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/white_rectangle_background"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="15dp"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.447"
+            app:layout_constraintStart_toEndOf="@+id/layoutFlights"
+            app:layout_constraintTop_toBottomOf="@+id/layoutFlightToHotel">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/app_name"
+                android:padding="8dp"
+                android:src="@drawable/details" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:text="Chi tiết vé"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="84dp"
+            android:background="@drawable/trending_background"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="@id/layoutFlightToHotel1"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/layoutFlights"
+            app:layout_constraintTop_toBottomOf="@+id/layoutFlights1"></androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:gravity="center"-->
+<!--        >-->
+<!--        <TextView-->
+<!--            android:layout_width="300dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="25dp"-->
+<!--            android:gravity="center"-->
+<!--            android:textColor="@color/md_red_500"-->
+<!--            android:fontFamily="@font/baloo"-->
+<!--            android:text="SALE AND DEALS" />-->
+<!--    </LinearLayout>-->
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="200dp">-->
+<!--        <ViewFlipper-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:id="@+id/v_flipper"-->
+<!--            />-->
+<!--    </RelativeLayout>-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginBottom="5dp"-->
+<!--        android:gravity="center"-->
+<!--        >-->
+<!--        <TextView-->
+<!--            android:layout_width="300dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="25dp"-->
+<!--            android:gravity="center"-->
+<!--            android:textColor="@color/md_red_500"-->
+<!--            android:fontFamily="@font/baloo"-->
+<!--            android:text="NEWS" />-->
+<!--    </LinearLayout>-->
+
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:layout_marginBottom="5dp">-->
+
+<!--        <ViewFlipper-->
+<!--            android:id="@+id/v_flipper1"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerHorizontal="true" />-->
+<!--    </RelativeLayout>-->
+
+
+</LinearLayout>
