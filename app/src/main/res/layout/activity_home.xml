@@ -81,8 +81,8 @@
 
         <LinearLayout
             android:id="@+id/layoutFlights"
-            android:layout_width="175dp"
-            android:layout_height="187dp"
+            android:layout_width="166dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
             android:background="@drawable/white_rectangle_background"
             android:gravity="center"
@@ -121,7 +121,7 @@
         <LinearLayout
             android:id="@+id/layoutFlightToHotel"
             android:layout_width="166dp"
-            android:layout_height="188dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
             android:background="@drawable/white_rectangle_background"
             android:gravity="center"
@@ -145,17 +145,19 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
                 android:gravity="center"
+                android:minHeight="48dp"
                 android:onClick="BuyForGroup"
                 android:text="Đặt theo nhóm"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/layoutFlights1"
-            android:layout_width="0dp"
+            android:layout_width="166dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
             android:background="@drawable/white_rectangle_background"
@@ -189,17 +191,18 @@
 
         <LinearLayout
             android:id="@+id/layoutFlightToHotel1"
-            android:layout_width="167dp"
-            android:layout_height="170dp"
+            android:layout_width="166dp"
+            android:layout_height="195dp"
             android:layout_marginTop="60dp"
             android:background="@drawable/white_rectangle_background"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/layoutFlights1"
             app:layout_constraintDimensionRatio="H,1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.447"
-            app:layout_constraintStart_toEndOf="@+id/layoutFlights"
+            app:layout_constraintStart_toEndOf="@+id/layoutFlights1"
             app:layout_constraintTop_toBottomOf="@+id/layoutFlightToHotel">
 
             <ImageView
@@ -225,7 +228,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="84dp"
+            android:layout_marginTop="60dp"
             android:background="@drawable/trending_background"
             android:padding="20dp"
             app:layout_constraintEnd_toEndOf="@id/layoutFlightToHotel1"
