@@ -67,7 +67,7 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
 
 
         NgayDi=(AutoCompleteTextView) findViewById(R.id.txtNgayDi);
-        DatePickerDialog.OnDateSetListener datelichdi =new DatePickerDialog.OnDateSetListener() {
+        DatePickerDialog.OnDateSetListener datelichdi = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
                 ngaydiCalendar.set(Calendar.YEAR, year);
@@ -102,7 +102,6 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
     }
 
     public void GetCangBay(){
-        Bundle bundle = new Bundle();
         Methods methods = getRetrofit().create(Methods.class);
         Call<CangModel> call = methods.GetCangs();
         call.enqueue(new Callback<CangModel>() {

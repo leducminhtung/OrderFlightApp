@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_white_1000"
+    android:background="@color/md_grey_300"
     android:orientation="vertical"
     tools:context=".Index">
 
@@ -23,7 +23,7 @@
             android:layout_height="80dp"
             android:layout_marginRight="5dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/icon_fly" />
+            android:src="@drawable/logobamboo" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -77,7 +77,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/md_grey_200">
+        android:background="@color/md_grey_300">
 
         <LinearLayout
             android:id="@+id/layoutFlights"
@@ -228,7 +228,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/trending_background"
             android:padding="20dp"
             app:layout_constraintEnd_toEndOf="@id/layoutFlightToHotel1"

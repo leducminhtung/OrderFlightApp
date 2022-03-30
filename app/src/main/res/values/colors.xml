@@ -563,6 +563,7 @@
 
     <!--blue grey-->
 
+    <color name="blue_dark">#00305b</color>
 
     <color name="md_blue_grey_50">#ECEFF1</color>
 

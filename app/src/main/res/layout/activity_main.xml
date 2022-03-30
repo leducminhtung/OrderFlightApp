@@ -8,7 +8,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    android:background="@color/md_light_blue_500"
+    android:background="@color/md_white_1000"
     tools:context=".MainActivity">
 
     <RelativeLayout
@@ -23,7 +23,7 @@
             android:layout_marginTop="70dp"
             android:foregroundGravity="center_vertical"
             android:visibility="visible"
-            app:srcCompat="@drawable/icon_fly"
+            app:srcCompat="@drawable/logobamboo"
             tools:visibility="visible" />
     </RelativeLayout>
 
@@ -36,7 +36,7 @@
         android:layout_marginTop="380dp"
         android:fontFamily="@font/baloo"
         android:text="XIN CHÀO"
-        android:textColor="@color/md_white_1000"
+        android:textColor="@color/blue_dark"
         android:textSize="50dp" />
 
     <TextView
@@ -48,8 +48,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="41dp"
         android:fontFamily="@font/baloo"
-        android:text="ĐƯỢC LÀM BỞI 4 TRÁI TÁO"
-        android:textColor="@color/md_white_1000"
+        android:text="MADE BY FOUR APPLE"
+        android:textColor="@color/blue_dark"
         android:textSize="25dp" />
 
 
