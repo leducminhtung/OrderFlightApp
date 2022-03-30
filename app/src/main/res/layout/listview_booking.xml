@@ -5,17 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Index"
+    tools:context=".ListView_Booking"
     >
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="History"
-        android:textColor="@color/white"
         android:background="@drawable/header_background2"
         android:fontFamily="@font/baloo"
-        android:textSize="30sp"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:text="DANH SÁCH CHUYẾN BAY"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
 
@@ -33,21 +35,26 @@
             app:layout_constraintBottom_toBottomOf="parent"
             >
 
-            <SearchView
+
+            <TextView
+                android:id="@+id/txtSLNguoi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:fontFamily="@font/baloo"
+                android:paddingTop="20dp"
+                android:background="@drawable/search_icon_background">
 
-                android:background="@drawable/search_icon_background"
-                >
-
-            </SearchView>
+            </TextView>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <ListView
-        android:id="@+id/lv_history"
+        android:id="@+id/lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

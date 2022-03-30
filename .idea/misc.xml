@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/OrclProject/OrderFlightApp/app/src/main/res/drawable/header_background.xml" value="0.18" />
+        <entry key="..\:/OrclProject/OrderFlightApp/app/src/main/res/drawable/header_background2.xml" value="0.1595" />
         <entry key="..\:/OrclProject/OrderFlightApp/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.1595" />
         <entry key="..\:/OrclProject/OrderFlightApp/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1595" />
         <entry key="..\:/OrclProject/OrderFlightApp/app/src/main/res/drawable/white_rectangle_background.xml" value="0.18" />
@@ -16,7 +17,9 @@
         <entry key="..\:/OrclProject/OrderFlightApp/app/src/main/res/layout/activity_menu.xml" value="0.22826086956521738" />
         <entry key="..\:/OrclProject/OrderFlightApp/app/src/main/res/layout/activity_settings.xml" value="0.22826086956521738" />
         <entry key="..\:/OrclProject/OrderFlightApp/app/src/main/res/layout/bottom_navigation.xml" value="0.22826086956521738" />
+        <entry key="..\:/OrclProject/OrderFlightApp/app/src/main/res/layout/dropdown_items.xml" value="0.22826086956521738" />
         <entry key="..\:/OrclProject/OrderFlightApp/app/src/main/res/layout/items_history.xml" value="0.22826086956521738" />
+        <entry key="..\:/OrclProject/OrderFlightApp/app/src/main/res/layout/listview_booking.xml" value="0.22826086956521738" />
         <entry key="..\:/OrclProject/OrderFlightApp/app/src/main/res/menu/navigation_menu.xml" value="0.25" />
         <entry key="..\:/OrclProject/OrderFlightApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1595" />
         <entry key="..\:/OrclProject/OrderFlightApp/app/src/main/res/xml/root_preferences.xml" value="0.22826086956521738" />

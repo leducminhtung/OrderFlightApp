@@ -1,5 +1,7 @@
 package com.example.orderflightapp;
 
+import static Model.RetrofitClient.getRetrofit;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -17,8 +19,7 @@ import android.widget.DatePicker;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
-
-
+import androidx.work.Data;
 
 
 import java.text.SimpleDateFormat;
@@ -28,6 +29,8 @@ import java.util.List;
 import java.util.Locale;
 
 
+import InterfaceReponsitory.Methods;
+import Model.CangModel;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -39,12 +42,14 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
     final Calendar ngaydiCalendar= Calendar.getInstance();
     final Calendar ngayveCalendar= Calendar.getInstance();
     CheckBox checkBox, ckbvethuong, ckbveTG;
+    List<CangModel.Items> cangBayAdapter = new ArrayList<>();
 
     AutoCompleteTextView NoiDen,NoiDi,NgayVe,NgayDi;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
+        cangBayAdapter = new ArrayList<>();
 
         init();
         //numberpicker
@@ -95,6 +100,61 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
             }
         });
     }
+
+    public void GetCangBay(){
+        Bundle bundle = new Bundle();
+        Methods methods = getRetrofit().create(Methods.class);
+        Call<CangModel> call = methods.GetCangs();
+        call.enqueue(new Callback<CangModel>() {
+            @Override
+            public void onResponse(Call<CangModel> call, Response<CangModel> response) {
+                List<CangModel.Items> data = response.body().getItems();
+                cangBayAdapter= data;
+                LayCangBay();
+                NoiDen.getText();
+            }
+
+            @Override
+            public void onFailure(Call<CangModel> call, Throwable t) {
+                Log.v("Thất bại rồi !","Thất bại rồi !" + "\n");
+            }
+        });
+    }
+
+    public void LayCangBay(){
+        List<String> dsTenCang = new ArrayList<>();
+
+        for(int i=0;i<cangBayAdapter.size();i++){
+            dsTenCang.add(cangBayAdapter.get(i).getTencang());
+        }
+
+        String[] items = {"SGN", "HAN", "DAD", "ASH"};
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                R.layout.dropdown_items, dsTenCang);
+
+
+        NoiDi.setAdapter(adapter);
+
+        NoiDen.setAdapter(adapter);
+
+        NoiDi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String item = parent.getItemAtPosition(position).toString();
+                Toast.makeText(getApplicationContext(),"Item: "+item, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        NoiDen.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String item = parent.getItemAtPosition(position).toString();
+                Toast.makeText(getApplicationContext(),"Item: "+item, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
     private void updateLabel(){
         String myFormat="dd/MM/yyyy";
         SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.SIMPLIFIED_CHINESE);
@@ -130,6 +190,7 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
         NgayDi = findViewById(R.id.txtNgayDi);
         NoiDen = findViewById(R.id.txtNoiDen);
         NoiDi =  findViewById(R.id.txtNoiDi);
+        GetCangBay();
     }
     CompoundButton.OnCheckedChangeListener mLinear = new CompoundButton.OnCheckedChangeListener() {
         @SuppressLint("WrongConstant")

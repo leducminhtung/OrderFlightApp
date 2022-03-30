@@ -4,19 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="10dp"
     android:orientation="vertical"
     android:paddingBottom="10dp"
     tools:context=".BookingActivity">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="BOOKING"
+        android:text="ĐẶT VÉ"
         android:textSize="30dp"
         android:gravity="center"
         android:fontFamily="@font/baloo"
         android:textColor="@color/white"
-        android:background="@drawable/header_background"
+        android:background="@drawable/header_background2"
         app:layout_constraintTop_toTopOf="parent"
         />
 
