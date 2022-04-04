@@ -70,9 +70,9 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
         DatePickerDialog.OnDateSetListener datelichdi = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
-                ngaydiCalendar.set(Calendar.YEAR, year);
-                ngaydiCalendar.set(Calendar.MONTH,month);
                 ngaydiCalendar.set(Calendar.DAY_OF_MONTH,day);
+                ngaydiCalendar.set(Calendar.MONTH,month);
+                ngaydiCalendar.set(Calendar.YEAR, year);
                 updateLabel();
             }
         };
@@ -87,9 +87,9 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
         DatePickerDialog.OnDateSetListener datelichve =new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
-                ngayveCalendar.set(Calendar.YEAR, year);
-                ngayveCalendar.set(Calendar.MONTH,month);
                 ngayveCalendar.set(Calendar.DAY_OF_MONTH,day);
+                ngayveCalendar.set(Calendar.MONTH,month);
+                ngayveCalendar.set(Calendar.YEAR, year);
                 updateLabel();
             }
         };
@@ -177,6 +177,8 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
     }
 
     public void GoToListFlights(View view) {
+        Intent intent = new Intent(BookingActivity.this, ListBooking.class);
+        startActivity(intent);
     }
     public void init(){
         checkBox = findViewById(R.id.pa);

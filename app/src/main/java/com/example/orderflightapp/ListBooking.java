@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ListView_Booking extends AppCompatActivity {
+public class ListBooking extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
