@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Locale;
 
 
+import Adapter.ChuyenbayAdapter;
 import InterfaceReponsitory.Methods;
 import Model.CangModel;
 import Model.ChuyenBayModel;
@@ -43,6 +44,8 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
     final Calendar ngayveCalendar= Calendar.getInstance();
     CheckBox checkBox, ckbvethuong, ckbveTG;
     List<CangModel.Items> cangBayAdapter = new ArrayList<>();
+    private ChuyenbayAdapter adapter;
+    private List<ChuyenBayModel.Items> data;
 
     AutoCompleteTextView NoiDen,NoiDi,NgayVe,NgayDi;
     @Override
@@ -70,7 +73,7 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
         DatePickerDialog.OnDateSetListener datelichdi = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
-                ngaydiCalendar.set(Calendar.DATE,day);
+                ngaydiCalendar.set(Calendar.DAY_OF_MONTH,day);
                 ngaydiCalendar.set(Calendar.MONTH,month);
                 ngaydiCalendar.set(Calendar.YEAR, year);
                 updateLabel();
@@ -88,7 +91,7 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
         DatePickerDialog.OnDateSetListener datelichve =new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
-                ngayveCalendar.set(Calendar.DATE,day);
+                ngayveCalendar.set(Calendar.DAY_OF_MONTH,day);
                 ngayveCalendar.set(Calendar.MONTH,month);
                 ngayveCalendar.set(Calendar.YEAR, year);
                 updateLabel();
@@ -156,7 +159,7 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
         });
     }
     private void updateLabel(){
-        String myFormat="dd/MM/yyyy";
+        String myFormat="dd_MM_yyyy";
         SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.SIMPLIFIED_CHINESE);
         NgayDi.setText(dateFormat.format(ngaydiCalendar.getTime()));
         NgayVe.setText(dateFormat.format(ngayveCalendar.getTime()));
@@ -186,17 +189,24 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
         else{
             String noiden = NoiDen.getText().toString();
             String noidi = NoiDi.getText().toString();
-            String ngaydistr = ngaydiCalendar.get(Calendar.DATE) + "_" + ngaydiCalendar.get(Calendar.MONTH) + "_" + ngaydiCalendar.get(Calendar.YEAR);
+            String ngaydi = NgayDi.getText().toString();
             Methods methods = getRetrofit().create(Methods.class);
-            Call<ChuyenBayModel> call = methods.GetChuyenBay(noidi, noiden, ngaydistr);
+            Call<ChuyenBayModel> call = methods.GetChuyenBay(noidi, noiden, ngaydi);
             call.enqueue(new Callback<ChuyenBayModel>() {
                 @Override
                 public void onResponse(Call<ChuyenBayModel> call, Response<ChuyenBayModel> response) {
-                    List<ChuyenBayModel.Items> data = response.body().getItems();
+//                    List<ChuyenBayModel.Items> data = response.body().getItems();
+                    data = response.body().getItems();
+//                    adapter = new ChuyenbayAdapter(L, BookingActivity.this);
+
                     ArrayList<ChuyenBayModel.Items> dscb_Found = new ArrayList<>();
+
 //                    String noiden = NoiDen.getText().toString();
 //                    String noidi = NoiDi.getText().toString();
 //                    String ngaydi = NgayDi.getText().toString();
+                    for (int i=0;i<data.size();i++){
+                        dscb_Found.add(data.get(i));
+                    }
 
 
 //                    for (int i=0;i<data.size();i++){
@@ -206,8 +216,8 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
 //                        }
 //                    }
                     Intent intent = new Intent(BookingActivity.this, ListBooking.class);
-//                    intent.putExtra("ListCB", dscb_Found);
-//                    intent.putExtra("SL_HanhKhach", SL_HanhKhach);
+                    intent.putExtra("ListCB", dscb_Found);
+                    intent.putExtra("SL_HanhKhach", SL_HanhKhach);
                     startActivity(intent);
 
                 }

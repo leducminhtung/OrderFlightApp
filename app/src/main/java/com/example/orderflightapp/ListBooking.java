@@ -22,7 +22,7 @@ public class ListBooking extends AppCompatActivity {
     ChuyenbayAdapter chuyenBayAdapter;
     ListView lv;
     TextView txtSL;
-    int SL_HANHKHACH =0;
+    int SL_HanhKhach =0;
 
 
     @Override
@@ -48,7 +48,7 @@ public class ListBooking extends AppCompatActivity {
                 Intent i = new Intent(ListBooking.this, BookingDetailsActivity.class);
 
                 i.putExtra("ChuyenBayDaChon", item);
-                i.putExtra("SL_HANHKHACH", SL_HANHKHACH);
+                i.putExtra("SL_HanhKhach", SL_HanhKhach);
 
                 startActivity(i);
             }
@@ -60,9 +60,9 @@ public class ListBooking extends AppCompatActivity {
         ListCB = new ArrayList<>();
         ListCB = (ArrayList<ChuyenBayModel.Items>) getIntent().getSerializableExtra("ListCB");
         Intent mIntent = getIntent();
-        SL_HANHKHACH = mIntent.getIntExtra("SL_NguoiLon",0);
+        SL_HanhKhach = mIntent.getIntExtra("SL_HanhKhach",0);
 
-        String SoLuong = SL_HANHKHACH + " HÀNH KHÁCH " ;
+        String SoLuong = SL_HanhKhach + " HÀNH KHÁCH " ;
         txtSL.setText(SoLuong);
 
         if (ListCB == null) Toast.makeText(getApplicationContext(), "Không tìm thấy chuyến bay nào !", Toast.LENGTH_LONG).show();

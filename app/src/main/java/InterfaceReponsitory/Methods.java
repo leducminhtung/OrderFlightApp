@@ -19,7 +19,7 @@ public interface Methods {
 
 
     @GET("ords/datve/cbmanage/searchcb")
-    Call<ChuyenBayModel> GetChuyenBay(@Query("TENCANGDI") String TENCANGDI, @Query("TENCANGDEN") String TENCANGDEN, @Query("GIOBAY") String GIOBAY);
+    Call<ChuyenBayModel> GetChuyenBay(@Query("TENCANGDI") String TENCANGDI, @Query("TENCANGDEN") String TENCANGDEN, @Query("NGAYBAY") String NGAYBAY);
 
 //    @GET("ords/datve/chuyenbay")
 //    Call<ChuyenBayModel> GetChuyenBay() ;
