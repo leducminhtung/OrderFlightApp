@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".BookingDetailsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/detailsbk"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shadow"
+        android:translationZ="4dp"
+        android:elevation="2dp"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="left">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="HÃNG BAY"
+                android:textColor="@color/black"
+                android:fontFamily="@font/baloo"
+                android:textSize="20sp"
+                android:layout_marginRight="50dp"
+                />
+
+            <TextView
+                android:id="@+id/txtTenHang_layoutDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/baloo"
+                android:text="BAMBOO AIRWAYS"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="left">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="NƠI ĐI"
+                android:textColor="@color/black"
+                android:fontFamily="@font/baloo"
+                android:textSize="20sp"
+                android:layout_marginRight="50dp"
+                />
+
+            <TextView
+                android:id="@+id/txtTenCangDi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="HỒ CHÍ MINH"
+                android:fontFamily="@font/baloo"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="left">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="NƠI ĐẾN"
+                android:textColor="@color/black"
+                android:fontFamily="@font/baloo"
+                android:textSize="20sp"
+                android:layout_marginRight="50dp"
+                />
+
+            <TextView
+                android:id="@+id/txtTenCangDen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/baloo"
+                android:text="HÀ NỘI"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="left">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="THỜI GIAN ĐI"
+                android:textColor="@color/black"
+                android:fontFamily="@font/baloo"
+                android:textSize="20sp"
+                android:layout_marginRight="50dp"
+                />
+            <TextView
+                android:id="@+id/txtNgayGioDi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/baloo"
+                android:text="13-06-2022 9:00 AM"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:layout_gravity="left">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/baloo"
+                android:textColor="@color/black"
+                android:text="THỜI LƯỢNG BAY"
+                android:layout_marginRight="50dp"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtNgayGioDen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/baloo"
+                android:text="150 phút"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="left">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="HÀNH KHÁCH"
+                android:textColor="@color/black"
+                android:fontFamily="@font/baloo"
+                android:textSize="20sp"
+                android:layout_marginRight="50dp"
+                />
+
+            <TextView
+                android:id="@+id/txtSL_HK"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="125dp"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtPriceHK"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="50dp"
+                android:text="$"
+                android:textColor="@color/yellow"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+
+            android:padding="10dp"
+            android:layout_gravity="left">
+
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price:"
+                android:textColor="@color/black"
+                android:fontFamily="@font/baloo"
+                android:textSize="20sp"
+                android:layout_marginRight="50dp"
+                />
+
+            <TextView
+                android:id="@+id/txtCheck_SumPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="300$"
+                android:textColor="@color/yellow"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CONFIRM"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/md_red_500"
+            android:textSize="20sp"
+            android:layout_marginRight="50dp"
+            android:fontFamily="@font/baloo"
+            android:onClick="GoToInfoCustomer"/>
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="BACK"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/md_blue_A700"
+            android:textSize="20sp"
+            android:fontFamily="@font/baloo"
+            android:onClick="BackToList"/>
+    </LinearLayout>
+
+
+</LinearLayout>

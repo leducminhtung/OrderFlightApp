@@ -19,7 +19,6 @@ import android.widget.DatePicker;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
-import androidx.work.Data;
 
 
 import java.text.SimpleDateFormat;
@@ -31,6 +30,7 @@ import java.util.Locale;
 
 import InterfaceReponsitory.Methods;
 import Model.CangModel;
+import Model.ChuyenBayModel;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -70,7 +70,7 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
         DatePickerDialog.OnDateSetListener datelichdi = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
-                ngaydiCalendar.set(Calendar.DAY_OF_MONTH,day);
+                ngaydiCalendar.set(Calendar.DATE,day);
                 ngaydiCalendar.set(Calendar.MONTH,month);
                 ngaydiCalendar.set(Calendar.YEAR, year);
                 updateLabel();
@@ -80,6 +80,7 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
             @Override
             public void onClick(View view) {
                 new DatePickerDialog(BookingActivity.this,datelichdi,ngaydiCalendar.get(Calendar.YEAR),ngaydiCalendar.get(Calendar.MONTH),ngaydiCalendar.get(Calendar.DAY_OF_MONTH)).show();
+                
             }
         });
 
@@ -87,7 +88,7 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
         DatePickerDialog.OnDateSetListener datelichve =new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
-                ngayveCalendar.set(Calendar.DAY_OF_MONTH,day);
+                ngayveCalendar.set(Calendar.DATE,day);
                 ngayveCalendar.set(Calendar.MONTH,month);
                 ngayveCalendar.set(Calendar.YEAR, year);
                 updateLabel();
@@ -177,8 +178,47 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
     }
 
     public void GoToListFlights(View view) {
-        Intent intent = new Intent(BookingActivity.this, ListBooking.class);
-        startActivity(intent);
+        int SL_HanhKhach = hanhkhach.getValue();
+        if(SL_HanhKhach == 0){
+            Toast.makeText(getBaseContext(), "Số lượng hành khách phải lớn hơn 0 !",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else{
+            String noiden = NoiDen.getText().toString();
+            String noidi = NoiDi.getText().toString();
+            String ngaydistr = ngaydiCalendar.get(Calendar.DATE) + "_" + ngaydiCalendar.get(Calendar.MONTH) + "_" + ngaydiCalendar.get(Calendar.YEAR);
+            Methods methods = getRetrofit().create(Methods.class);
+            Call<ChuyenBayModel> call = methods.GetChuyenBay(noidi, noiden, ngaydistr);
+            call.enqueue(new Callback<ChuyenBayModel>() {
+                @Override
+                public void onResponse(Call<ChuyenBayModel> call, Response<ChuyenBayModel> response) {
+                    List<ChuyenBayModel.Items> data = response.body().getItems();
+                    ArrayList<ChuyenBayModel.Items> dscb_Found = new ArrayList<>();
+//                    String noiden = NoiDen.getText().toString();
+//                    String noidi = NoiDi.getText().toString();
+//                    String ngaydi = NgayDi.getText().toString();
+
+
+//                    for (int i=0;i<data.size();i++){
+//                        if (noidi.equals(data.get(i).getTencangdi()) && noiden.equals(data.get(i).getTencangden())
+//                                && ngaydi.equals(data.get(i).ge.trim())){
+//                            dscb_Found.add(data.get(i));
+//                        }
+//                    }
+                    Intent intent = new Intent(BookingActivity.this, ListBooking.class);
+//                    intent.putExtra("ListCB", dscb_Found);
+//                    intent.putExtra("SL_HanhKhach", SL_HanhKhach);
+                    startActivity(intent);
+
+                }
+
+                @Override
+                public void onFailure(Call<ChuyenBayModel> call, Throwable t) {
+
+                }
+            });
+        }
+
     }
     public void init(){
         checkBox = findViewById(R.id.pa);

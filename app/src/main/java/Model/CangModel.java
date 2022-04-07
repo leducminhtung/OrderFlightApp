@@ -150,7 +150,7 @@ public class CangModel implements Serializable
             return "ClassPojo [quocgia = "+quocgia+", tinh = "+tinh+", links = "+links+", tencang = "+tencang+", macang = "+macang+"]";
         }
     }
-    public class Links
+    public class Links implements Serializable
     {
         private String rel;
 
