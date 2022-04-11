@@ -2,20 +2,40 @@ package com.example.orderflightapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class Index extends AppCompatActivity {
+
+    TextView tenKH;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        tenKH = findViewById(R.id.txtCustomer);
+        Intent i = getIntent();
+        Bundle b = i.getExtras();
+
+
+        if(b != null){
+            String j = (String) b.get("tenkh");
+            Log.v("log:",j);
+        }
+
+
+
+
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

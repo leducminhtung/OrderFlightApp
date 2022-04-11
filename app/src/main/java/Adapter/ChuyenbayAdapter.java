@@ -34,12 +34,18 @@ public class ChuyenbayAdapter extends ArrayAdapter<ChuyenBayModel.Items> {
         TextView txtCangden = view.findViewById(R.id.txtCangDen);
         TextView txtGiodi = view.findViewById(R.id.txtGioDi);
         TextView txtGiatien = view.findViewById(R.id.txtPrice);
+        TextView txtThoiLuong = view.findViewById(R.id.txtThoiluong);
+//        TextView txtTenCangDi = view.findViewById(R.id.txtTenCangDi);
+//        TextView txtTenCangDen = view.findViewById(R.id.txtTenCangDen);
 
         ChuyenBayModel.Items chuyenBayModel =getItem(position);
         txtGiatien.setText(chuyenBayModel.getGvht().replace(".00","")+"đ");
         txtCangdi.setText(chuyenBayModel.getMacangdi());
         txtCangden.setText(chuyenBayModel.getMacangden());
         txtGiodi.setText(chuyenBayModel.getGiobay());
+        txtThoiLuong.setText(chuyenBayModel.getThoiluongcb() + "phút");
+//        txtTenCangDi.setText(chuyenBayModel.getTencangdi());
+//        txtTenCangDen.setText(chuyenBayModel.getTencangden());
 
         return view;
     }

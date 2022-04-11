@@ -21,6 +21,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 
+import com.google.android.material.textfield.TextInputEditText;
+
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -40,6 +43,7 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
 
     NumberPicker hanhkhach;
 
+    TextInputEditText txtCustomer;
     final Calendar ngaydiCalendar= Calendar.getInstance();
     final Calendar ngayveCalendar= Calendar.getInstance();
     CheckBox checkBox, ckbvethuong, ckbveTG;
@@ -53,6 +57,7 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
         cangBayAdapter = new ArrayList<>();
+        
 
         init();
         //numberpicker
@@ -159,7 +164,7 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
         });
     }
     private void updateLabel(){
-        String myFormat="dd_MM_yyyy";
+        String myFormat="dd/MM/yyyy";
         SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.SIMPLIFIED_CHINESE);
         NgayDi.setText(dateFormat.format(ngaydiCalendar.getTime()));
         NgayVe.setText(dateFormat.format(ngayveCalendar.getTime()));
@@ -189,7 +194,7 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
         else{
             String noiden = NoiDen.getText().toString();
             String noidi = NoiDi.getText().toString();
-            String ngaydi = NgayDi.getText().toString();
+            String ngaydi = NgayDi.getText().toString().replace('/','_');
             Methods methods = getRetrofit().create(Methods.class);
             Call<ChuyenBayModel> call = methods.GetChuyenBay(noidi, noiden, ngaydi);
             call.enqueue(new Callback<ChuyenBayModel>() {
@@ -218,6 +223,7 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
                     Intent intent = new Intent(BookingActivity.this, ListBooking.class);
                     intent.putExtra("ListCB", dscb_Found);
                     intent.putExtra("SL_HanhKhach", SL_HanhKhach);
+
                     startActivity(intent);
 
                 }

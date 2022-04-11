@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="@drawable/detailsbk"/>
+        android:background="@drawable/backgroundbamboo"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -63,7 +63,7 @@
                 android:textColor="@color/black"
                 android:fontFamily="@font/baloo"
                 android:textSize="20sp"
-                android:layout_marginRight="50dp"
+                android:layout_marginRight="20dp"
                 />
 
             <TextView
@@ -90,7 +90,7 @@
                 android:textColor="@color/black"
                 android:fontFamily="@font/baloo"
                 android:textSize="20sp"
-                android:layout_marginRight="50dp"
+                android:layout_marginRight="20dp"
                 />
 
             <TextView
@@ -146,7 +146,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/txtNgayGioDen"
+                android:id="@+id/txtThoiLuongBay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo"
@@ -155,40 +155,62 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:orientation="horizontal"
+            android:id="@+id/lnr_detais_hk"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
             android:layout_gravity="left">
 
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="HÀNH KHÁCH"
+                android:text="KHÁCH HÀNG: "
                 android:textColor="@color/black"
                 android:fontFamily="@font/baloo"
                 android:textSize="20sp"
                 android:layout_marginRight="50dp"
+                android:layout_marginBottom="10dp"
                 />
 
-            <TextView
-                android:id="@+id/txtSL_HK"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="125dp"
-                android:text="0"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/txtPriceHK"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="50dp"
-                android:text="$"
-                android:textColor="@color/yellow"
-                android:textSize="20sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity=""
+                    android:fontFamily="@font/baloo"
+                    android:text="SỐ LƯỢNG:"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtSL_HK"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="100dp"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/txtPriceHK"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="50dp"
+                    android:text="1000$"
+                    android:textColor="@color/yellow"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+
+
 
         </LinearLayout>
 
@@ -211,7 +233,7 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price:"
+                android:text="TỔNG TIỀN"
                 android:textColor="@color/black"
                 android:fontFamily="@font/baloo"
                 android:textSize="20sp"

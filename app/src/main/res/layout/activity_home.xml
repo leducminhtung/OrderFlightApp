@@ -35,27 +35,26 @@
             android:gravity="center"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             tools:ignore="ExtraText"
             android:textSize="20dp"
             />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Le Duc Minh Tung"
-                android:fontFamily="@font/baloo"
-                android:layout_marginRight="10dp"
-                android:backgroundTint="@color/md_white_1000"
-                android:gravity="center"
-                android:minWidth="48dp"
-                android:minHeight="48dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="15dp"
-                tools:ignore="ExtraText"
-                android:textSize="20dp"
-                />
+        <TextView
+            android:id="@+id/txtCustomer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@color/md_white_1000"
+            android:fontFamily="@font/baloo"
+            android:gravity="center"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:text="Le Duc Minh Tung"
+            android:textSize="20dp" />
 
 
         <!--        <Button-->

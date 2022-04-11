@@ -47,36 +47,47 @@
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-
                 <TextView
                     android:layout_marginRight="10dp"
                     android:id="@+id/txtTenHang_layoutDetails"
                     android:fontFamily="@font/baloo"
                     android:textSize="20sp"
+                    android:paddingRight="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Bamboo Airways" />
-                <TextView
-                    android:id="@+id/txtGioDi"
-                    android:layout_marginLeft="20dp"
-                    android:layout_width="match_parent"
+                
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12:00 AM" />
+                    android:orientation="vertical">
 
-<!--                <TextView-->
-<!--                    android:id="@+id/txtGach"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
+                    <TextView
+                        android:id="@+id/txtGioDi"
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="12:00 AM" />
 
-<!--                    android:text=" - " />-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Thời lượng: "/>
 
-<!--                <TextView-->
-<!--                    android:id="@+id/txtGioDen"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
+                        <TextView
+                            android:id="@+id/txtThoiluong"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="150" />
+                    </LinearLayout>
 
-<!--                    android:padding="5dp"-->
-<!--                    android:text="12:00 AM" />-->
+                </LinearLayout>
+
+
 
             </LinearLayout>
             <LinearLayout
