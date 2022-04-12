@@ -14,7 +14,7 @@ import Model.ChuyenBayModel;
 public class BookingDetailsActivity extends AppCompatActivity {
 
     ChuyenBayModel.Items chuyenbaydachon;
-    TextView txtTenCangDi,txtTenCangDen,txtNgayGioDi, txtThoiLuongBay, txtSLHK, txtGiaTienHK, txtTongTien;
+    TextView txtTenCangDi,txtTenCangDen,txtNgayGioDi, txtThoiLuongBay, txtSLHK, txtGiaTienHK, txtTongTien, txtTrungChuyen, txtTGDung;
     LinearLayout lnr_details_hk;
     int slHK = 0;
 
@@ -30,6 +30,8 @@ public class BookingDetailsActivity extends AppCompatActivity {
     }
     public void GetIdView(){
 
+        txtTrungChuyen = findViewById(R.id.txtTrungChuyen);
+        txtTGDung = findViewById(R.id.txtTGdung);
         txtTenCangDi =findViewById(R.id.txtTenCangDi);
         txtTenCangDen = findViewById(R.id.txtTenCangDen);
         txtNgayGioDi = findViewById(R.id.txtNgayGioDi);
@@ -39,11 +41,11 @@ public class BookingDetailsActivity extends AppCompatActivity {
         txtTongTien = findViewById(R.id.txtCheck_SumPrice);
         lnr_details_hk = findViewById(R.id.lnr_detais_hk);
 
+
     }
     public void GetDataItem(){
         Intent intent = getIntent();
         slHK = intent.getIntExtra("SL_HanhKhach", 0);
-
 
 
         txtTenCangDi.setText(chuyenbaydachon.getTencangdi());
@@ -52,6 +54,8 @@ public class BookingDetailsActivity extends AppCompatActivity {
         txtThoiLuongBay.setText(chuyenbaydachon.getThoiluongcb() + "phút");
         txtSLHK.setText(String.valueOf(slHK));
         txtGiaTienHK.setText(chuyenbaydachon.getGvht());
+        txtTGDung.setText(chuyenbaydachon.getThoigiandung() + "phút");
+        txtTrungChuyen.setText(chuyenbaydachon.getGhichu());
 
         double GiaHK = Double.parseDouble(txtGiaTienHK.getText().toString());
 
@@ -66,6 +70,8 @@ public class BookingDetailsActivity extends AppCompatActivity {
     }
 
     public void GoToInfoCustomer(View view) {
+        Intent i = new Intent(BookingDetailsActivity.this, CheckOutActivity.class);
+        startActivity(i);
 
     }
 
