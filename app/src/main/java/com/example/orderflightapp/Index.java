@@ -14,24 +14,32 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 
+import Model.TaiKhoanModel;
+
 public class Index extends AppCompatActivity {
 
+    TaiKhoanModel.Items TaiKhoan;
     TextView tenKH;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+//        GetIdView();
+//        GetData();
+//        SetData();
 
-        tenKH = findViewById(R.id.txtCustomer);
-        Intent i = getIntent();
-        Bundle b = i.getExtras();
 
 
-        if(b != null){
-            String j = (String) b.get("tenkh");
-            Log.v("log:",j);
-        }
+
+
+//        Bundle b = i.getExtras();
+//
+//
+//        if(b != null){
+//            String j = (String) b.get("tenkh");
+//            Log.v("log:",j);
+//        }
 
 
 
@@ -46,6 +54,17 @@ public class Index extends AppCompatActivity {
 
         bottomNav.setOnNavigationItemSelectedListener(navListener);
     }
+
+//    public void GetIdView(){
+//        tenKH = findViewById(R.id.txtCustomer);
+//    }
+//    public void GetData(){
+//        Intent i = getIntent();
+//        TaiKhoan =(TaiKhoanModel.Items) getIntent().getSerializableExtra("s");
+//    }
+//    public void SetData(){
+//        tenKH.setText(TaiKhoan.getTenkh());
+//    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener(){

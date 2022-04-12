@@ -96,7 +96,7 @@ public class TaiKhoanModel implements Serializable
 
         private String ngaysinh;
 
-        private Links[] links;
+        private List<Links> links;
 
         private String cancuoc;
 
@@ -162,12 +162,12 @@ public class TaiKhoanModel implements Serializable
             this.ngaysinh = ngaysinh;
         }
 
-        public Links[] getLinks ()
+        public List<Links> getLinks ()
         {
             return links;
         }
 
-        public void setLinks (Links[] links)
+        public void setLinks (List<Links> links)
         {
             this.links = links;
         }

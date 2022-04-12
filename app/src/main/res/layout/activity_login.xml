@@ -113,7 +113,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tạo mật khẩu"
+            android:text="Tạo tài khoản"
             android:onClick="CreateAccount"
             android:fontFamily="@font/baloo"
             android:background="#00000000"

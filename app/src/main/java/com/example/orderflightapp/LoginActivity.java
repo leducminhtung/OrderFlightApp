@@ -95,6 +95,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void CreateAccount(View view) {
+        Intent i = new Intent(LoginActivity.this, RegisterUser.class);
+        startActivity(i);
     }
 }
 
