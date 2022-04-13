@@ -2,7 +2,6 @@ package com.example.orderflightapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -53,7 +52,7 @@ public class BookingDetailsActivity extends AppCompatActivity {
         txtNgayGioDi.setText(chuyenbaydachon.getGiobay() +" "+chuyenbaydachon.getNgaybay());
         txtThoiLuongBay.setText(chuyenbaydachon.getThoiluongcb() + "phút");
         txtSLHK.setText(String.valueOf(slHK));
-        txtGiaTienHK.setText(chuyenbaydachon.getGvht());
+        txtGiaTienHK.setText(chuyenbaydachon.getGv());
         txtTGDung.setText(chuyenbaydachon.getThoigiandung() + "phút");
         txtTrungChuyen.setText(chuyenbaydachon.getGhichu());
 

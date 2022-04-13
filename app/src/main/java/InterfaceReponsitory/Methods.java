@@ -18,8 +18,11 @@ public interface Methods {
     @GET("ords/datve/cang")
     Call<CangModel> GetCangs() ;
 
-    @GET("ords/datve/cbmanage/searchcb")
-    Call<ChuyenBayModel> GetChuyenBay(@Query("TENCANGDI") String TENCANGDI, @Query("TENCANGDEN") String TENCANGDEN, @Query("NGAYBAY") String NGAYBAY);
+    @GET("ords/datve/cbmanage/searchcbth")
+    Call<ChuyenBayModel> GetChuyenBayTH(@Query("TENCANGDI") String TENCANGDI, @Query("TENCANGDEN") String TENCANGDEN, @Query("NGAYBAY") String NGAYBAY);
+
+    @GET("ords/datve/cbmanage/searchcbtg")
+    Call<ChuyenBayModel> GetChuyenBayTG(@Query("TENCANGDI") String TENCANGDI, @Query("TENCANGDEN") String TENCANGDEN, @Query("NGAYBAY") String NGAYBAY);
 
     @GET("ords/datve/khachhang")
     Call<TaiKhoanModel> GetTaiKhoan();

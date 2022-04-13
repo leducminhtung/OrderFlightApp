@@ -114,13 +114,14 @@ public class ChuyenBayModel implements Serializable
             return "ClassPojo [rel = "+rel+", href = "+href+"]";
         }
     }
-    public class Items implements Serializable
-    {
+    public class Items implements Serializable {
         private String macb;
 
         private String macangden;
 
         private String tenmb;
+
+        private String giobay;
 
         private String ghichu;
 
@@ -130,152 +131,113 @@ public class ChuyenBayModel implements Serializable
 
         private String ngaybay;
 
-        private String gvht;
+        private String tencangdi;
+
+        private String gv;
 
         private String tencangden;
 
-        private String gvtg;
-
-        private String giobay;
-
-        private String tencangdi;
-
         private String thoigiandung;
 
-        public String getMacb ()
-        {
+        public String getMacb() {
             return macb;
         }
 
-        public void setMacb (String macb)
-        {
+        public void setMacb(String macb) {
             this.macb = macb;
         }
 
-        public String getMacangden ()
-        {
+        public String getMacangden() {
             return macangden;
         }
 
-        public void setMacangden (String macangden)
-        {
+        public void setMacangden(String macangden) {
             this.macangden = macangden;
         }
 
-        public String getTenmb ()
-        {
+        public String getTenmb() {
             return tenmb;
         }
 
-        public void setTenmb (String tenmb)
-        {
+        public void setTenmb(String tenmb) {
             this.tenmb = tenmb;
         }
 
-        public String getGhichu ()
-        {
-            return ghichu;
-        }
-
-        public void setGhichu (String ghichu)
-        {
-            this.ghichu = ghichu;
-        }
-
-        public String getThoiluongcb ()
-        {
-            return thoiluongcb;
-        }
-
-        public void setThoiluongcb (String thoiluongcb)
-        {
-            this.thoiluongcb = thoiluongcb;
-        }
-
-        public String getMacangdi ()
-        {
-            return macangdi;
-        }
-
-        public void setMacangdi (String macangdi)
-        {
-            this.macangdi = macangdi;
-        }
-
-        public String getNgaybay ()
-        {
-            return ngaybay;
-        }
-
-        public void setNgaybay (String ngaybay)
-        {
-            this.ngaybay = ngaybay;
-        }
-
-        public String getGvht ()
-        {
-            return gvht;
-        }
-
-        public void setGvht (String gvht)
-        {
-            this.gvht = gvht;
-        }
-
-        public String getTencangden ()
-        {
-            return tencangden;
-        }
-
-        public void setTencangden (String tencangden)
-        {
-            this.tencangden = tencangden;
-        }
-
-        public String getGvtg ()
-        {
-            return gvtg;
-        }
-
-        public void setGvtg (String gvtg)
-        {
-            this.gvtg = gvtg;
-        }
-
-        public String getGiobay ()
-        {
+        public String getGiobay() {
             return giobay;
         }
 
-        public void setGiobay (String giobay)
-        {
+        public void setGiobay(String giobay) {
             this.giobay = giobay;
         }
 
-        public String getTencangdi ()
-        {
+        public String getGhichu() {
+            return ghichu;
+        }
+
+        public void setGhichu(String ghichu) {
+            this.ghichu = ghichu;
+        }
+
+        public String getThoiluongcb() {
+            return thoiluongcb;
+        }
+
+        public void setThoiluongcb(String thoiluongcb) {
+            this.thoiluongcb = thoiluongcb;
+        }
+
+        public String getMacangdi() {
+            return macangdi;
+        }
+
+        public void setMacangdi(String macangdi) {
+            this.macangdi = macangdi;
+        }
+
+        public String getNgaybay() {
+            return ngaybay;
+        }
+
+        public void setNgaybay(String ngaybay) {
+            this.ngaybay = ngaybay;
+        }
+
+        public String getTencangdi() {
             return tencangdi;
         }
 
-        public void setTencangdi (String tencangdi)
-        {
+        public void setTencangdi(String tencangdi) {
             this.tencangdi = tencangdi;
         }
 
-        public String getThoigiandung ()
-        {
+        public String getGv() {
+            return gv;
+        }
+
+        public void setGv(String gvht) {
+            this.gv = gvht;
+        }
+
+        public String getTencangden() {
+            return tencangden;
+        }
+
+        public void setTencangden(String tencangden) {
+            this.tencangden = tencangden;
+        }
+
+        public String getThoigiandung() {
             return thoigiandung;
         }
 
-        public void setThoigiandung (String thoigiandung)
-        {
+        public void setThoigiandung(String thoigiandung) {
             this.thoigiandung = thoigiandung;
         }
 
         @Override
-        public String toString()
-        {
-            return "ClassPojo [macb = "+macb+", macangden = "+macangden+", tenmb = "+tenmb+", ghichu = "+ghichu+", thoiluongcb = "+thoiluongcb+", macangdi = "+macangdi+", ngaybay = "+ngaybay+", gvht = "+gvht+", tencangden = "+tencangden+", gvtg = "+gvtg+", giobay = "+giobay+", tencangdi = "+tencangdi+", thoigiandung = "+thoigiandung+"]";
+        public String toString() {
+            return "ClassPojo [macb = " + macb + ", macangden = " + macangden + ", tenmb = " + tenmb + ", giobay = " + giobay + ", ghichu = " + ghichu + ", thoiluongcb = " + thoiluongcb + ", macangdi = " + macangdi + ", ngaybay = " + ngaybay + ", tencangdi = " + tencangdi + ", gvht = " + gv + ", tencangden = " + tencangden + ", thoigiandung = " + thoigiandung + "]";
         }
     }
 }

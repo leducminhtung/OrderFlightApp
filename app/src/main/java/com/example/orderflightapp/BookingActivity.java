@@ -23,7 +23,6 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -31,7 +30,6 @@ import java.util.List;
 import java.util.Locale;
 
 
-import Adapter.ChuyenbayAdapter;
 import InterfaceReponsitory.Methods;
 import Model.CangModel;
 import Model.ChuyenBayModel;
@@ -48,7 +46,6 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
     final Calendar ngayveCalendar= Calendar.getInstance();
     CheckBox checkBox, ckbvethuong, ckbveTG;
     List<CangModel.Items> cangBayAdapter = new ArrayList<>();
-    private ChuyenbayAdapter adapter;
     private List<ChuyenBayModel.Items> data;
 
     AutoCompleteTextView NoiDen,NoiDi,NgayVe,NgayDi;
@@ -192,49 +189,66 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
             return;
         }
         else{
-            String noiden = NoiDen.getText().toString();
-            String noidi = NoiDi.getText().toString();
-            String ngaydi = NgayDi.getText().toString().replace('/','_');
-            Methods methods = getRetrofit().create(Methods.class);
-            Call<ChuyenBayModel> call = methods.GetChuyenBay(noidi, noiden, ngaydi);
-            call.enqueue(new Callback<ChuyenBayModel>() {
-                @Override
-                public void onResponse(Call<ChuyenBayModel> call, Response<ChuyenBayModel> response) {
+            if(ckbvethuong.isChecked()){
+                String noiden = NoiDen.getText().toString();
+                String noidi = NoiDi.getText().toString();
+                String ngaydi = NgayDi.getText().toString().replace('/','_');
+                Methods methods = getRetrofit().create(Methods.class);
+                Call<ChuyenBayModel> call = methods.GetChuyenBayTH(noidi, noiden, ngaydi);
+                call.enqueue(new Callback<ChuyenBayModel>() {
+                    @Override
+                    public void onResponse(Call<ChuyenBayModel> call, Response<ChuyenBayModel> response) {
 //                    List<ChuyenBayModel.Items> data = response.body().getItems();
-                    data = response.body().getItems();
+                        data = response.body().getItems();
 //                    adapter = new ChuyenbayAdapter(L, BookingActivity.this);
 
-                    ArrayList<ChuyenBayModel.Items> dscb_Found = new ArrayList<>();
+                        ArrayList<ChuyenBayModel.Items> dscb_Found = new ArrayList<>();
 
-//                    String noiden = NoiDen.getText().toString();
-//                    String noidi = NoiDi.getText().toString();
-//                    String ngaydi = NgayDi.getText().toString();
-                    for (int i=0;i<data.size();i++){
-                        dscb_Found.add(data.get(i));
+                        for (int i=0;i<data.size();i++){
+                            dscb_Found.add(data.get(i));
+                        }
+
+                        Intent intent = new Intent(BookingActivity.this, ListBooking.class);
+                        intent.putExtra("ListCB", dscb_Found);
+                        intent.putExtra("SL_HanhKhach", SL_HanhKhach);
+
+                        startActivity(intent);
                     }
+                    @Override
+                    public void onFailure(Call<ChuyenBayModel> call, Throwable t) {
+                    }
+                });
+            }else if(ckbveTG.isChecked()){
+                String noiden = NoiDen.getText().toString();
+                String noidi = NoiDi.getText().toString();
+                String ngaydi = NgayDi.getText().toString().replace('/','_');
+                Methods methods = getRetrofit().create(Methods.class);
+                Call<ChuyenBayModel> call = methods.GetChuyenBayTG(noidi, noiden, ngaydi);
+                call.enqueue(new Callback<ChuyenBayModel>() {
+                    @Override
+                    public void onResponse(Call<ChuyenBayModel> call, Response<ChuyenBayModel> response) {
+//                    List<ChuyenBayModel.Items> data = response.body().getItems();
+                        data = response.body().getItems();
+//                    adapter = new ChuyenbayAdapter(L, BookingActivity.this);
 
+                        ArrayList<ChuyenBayModel.Items> dscb_Found = new ArrayList<>();
 
-//                    for (int i=0;i<data.size();i++){
-//                        if (noidi.equals(data.get(i).getTencangdi()) && noiden.equals(data.get(i).getTencangden())
-//                                && ngaydi.equals(data.get(i).ge.trim())){
-//                            dscb_Found.add(data.get(i));
-//                        }
-//                    }
-                    Intent intent = new Intent(BookingActivity.this, ListBooking.class);
-                    intent.putExtra("ListCB", dscb_Found);
-                    intent.putExtra("SL_HanhKhach", SL_HanhKhach);
+                        for (int i=0;i<data.size();i++){
+                            dscb_Found.add(data.get(i));
+                        }
 
-                    startActivity(intent);
+                        Intent intent = new Intent(BookingActivity.this, ListBooking.class);
+                        intent.putExtra("ListCB", dscb_Found);
+                        intent.putExtra("SL_HanhKhach", SL_HanhKhach);
 
-                }
-
-                @Override
-                public void onFailure(Call<ChuyenBayModel> call, Throwable t) {
-
-                }
-            });
+                        startActivity(intent);
+                    }
+                    @Override
+                    public void onFailure(Call<ChuyenBayModel> call, Throwable t) {
+                    }
+                });
+            }
         }
-
     }
     public void init(){
         checkBox = findViewById(R.id.pa);
@@ -258,6 +272,8 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
                         "Bạn đã chọn : " + buttonView.getText().toString(),
                         Toast.LENGTH_SHORT).show();
                 NgayVe.setEnabled(true);
+
+
             }
             else
             {
