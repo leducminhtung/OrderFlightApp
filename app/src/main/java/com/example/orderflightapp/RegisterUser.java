@@ -2,22 +2,28 @@ package com.example.orderflightapp;
 
 import static Model.RetrofitClient.getRetrofit;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.DatePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import InterfaceReponsitory.Methods;
 import Model.AccountInsertModel;
 
 import Model.CallbackResultModel;
-import Model.CustomerInsertModel;
 import Model.TaiKhoanModel;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,7 +31,9 @@ import retrofit2.Response;
 
 public class RegisterUser extends AppCompatActivity {
 
-    TextInputEditText txtRe_UserName,txtRe_Password,txtRe_ConfirmPassword;
+    TextInputEditText txtRe_UserName,txtRe_Password,txtRe_ConfirmPassword, txtRe_ten, txtRe_Email, txtRe_Sdt;
+    AutoCompleteTextView ngaysinh, gioitinh;
+    final Calendar BDCalendar= Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,17 +41,50 @@ public class RegisterUser extends AppCompatActivity {
         setContentView(R.layout.register_account);
 
         txtRe_UserName = findViewById(R.id.txtRe_UserName);
+        txtRe_ten = findViewById(R.id.txtRe_ten);
+        txtRe_Email = findViewById(R.id.txtRe_email);
+        txtRe_Sdt = findViewById(R.id.txtRe_sdt);
         txtRe_Password = findViewById(R.id.txtRe_Password);
         txtRe_ConfirmPassword = findViewById(R.id.txtRe_ConfirmPassword);
 
+        gioitinh = findViewById(R.id.txtRe_GT);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(RegisterUser.this,
+                R.layout.dropdown_items, getResources().getStringArray(R.array.gioitinh));
+        gioitinh.setAdapter(arrayAdapter);
 
-
+        ngaysinh = (AutoCompleteTextView) findViewById(R.id.txtRe_BD);
+        DatePickerDialog.OnDateSetListener dateBD = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                BDCalendar.set(Calendar.DAY_OF_MONTH,day);
+                BDCalendar.set(Calendar.MONTH,month);
+                BDCalendar.set(Calendar.YEAR,year);
+                updateLabel();
+            }
+        };
+        ngaysinh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new DatePickerDialog(RegisterUser.this, dateBD, BDCalendar.get(Calendar.YEAR), BDCalendar.get(Calendar.MONTH), BDCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+    }
+    private void updateLabel(){
+        String myFormat="dd/MM/yyyy";
+        SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.SIMPLIFIED_CHINESE);
+        ngaysinh.setText(dateFormat.format(BDCalendar.getTime()));
     }
 
     public void SaveAccount(View view) {
         final int[] check_UserNameExist = {1};
         String MatKhau = txtRe_Password.getText().toString();
         String MatKhauConfirm =txtRe_ConfirmPassword.getText().toString();
+//        String Name = txtRe_ten.getText().toString();
+//        String BD = ngaysinh.getText().toString();
+//        String Email = txtRe_Email.getText().toString();
+//        String GT = gioitinh.getText().toString();
+//        String SDT = txtRe_Sdt.getText().toString();
+
 
         final Methods[] methodsGetDsTK ={getRetrofit().create(Methods.class)};
         Call<TaiKhoanModel> callLayDSHD = methodsGetDsTK[0].GetTaiKhoan();
@@ -61,6 +102,17 @@ public class RegisterUser extends AppCompatActivity {
                     AccountInsertModel taiKhoanInsertModel = new AccountInsertModel();
                     taiKhoanInsertModel.setCANCUOC(txtRe_UserName.getText().toString());
                     taiKhoanInsertModel.setMATKHAU(txtRe_Password.getText().toString());
+                    taiKhoanInsertModel.setEMAIL(txtRe_Email.getText().toString());
+                    taiKhoanInsertModel.setTENKH(txtRe_ten.getText().toString());
+                    taiKhoanInsertModel.setSDT(txtRe_Sdt.getText().toString());
+                    String bd = ngaysinh.getText().toString();
+                    taiKhoanInsertModel.setNGAYSINH(bd);
+                    String GT = gioitinh.getText().toString();
+                    if(GT.equals("Nam")){
+                        taiKhoanInsertModel.setGIOITINH("0");
+                    }else if(GT.equals("Nữ")){
+                        taiKhoanInsertModel.setGIOITINH("1");
+                    }
 
 
                     Methods methods = getRetrofit().create(Methods.class);

@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/switchlayout"
     tools:context=".Index">
 
 
@@ -14,79 +15,51 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/header_background2"
             android:padding="20dp">
 
+
             <ImageView
                 android:id="@+id/profileUser_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_centerVertical="true"
-                android:src="@drawable/ic_baseline_person"
+                android:src="@drawable/ic_baseline_person" />
 
-
-                />
-
-            <TextView
-                android:id="@+id/txtCustomUserName"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/profileUser_image"
-                android:fontFamily="@font/baloo"
-                android:text="LeDucMinhTung"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
-        </RelativeLayout>
+                android:layout_marginLeft="100dp"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-100dp"
-            android:padding="10dp">
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="@color/md_light_blue_500"
-                app:cardElevation="10dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/txtCustomUserName"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="5dp">
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/baloo"
+                    android:text="LeDucMinhTung"
+                    android:textColor="@color/white"
+                    android:textSize="30sp" />
 
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
+                <TextView
+                    android:id="@+id/txtHangTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:text="HẠNG BẠC"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+            </LinearLayout>
 
-                        android:src="@drawable/ic_baseline_settings_applications_24"
-                        tools:ignore="SpeakableTextPresentCheck" />
-
-                    <TextView
-                        android:id="@+id/txtchangePassword"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:fontFamily="@font/baloo"
-                        android:gravity="center"
-                        android:includeFontPadding="false"
-                        android:minHeight="48dp"
-                        android:onClick="GoToChangePass"
-                        android:text="Change Password"
-                        android:textSize="25sp" />
-
-                </RelativeLayout>
-            </com.google.android.material.card.MaterialCardView>
-        </LinearLayout>
+        </RelativeLayout>
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -97,39 +70,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:hint="CCCD">
+                    android:hint="Họ và tên">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtCustomerCCCD"
+                        android:id="@+id/txtCustomerName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/ic_baseline_people_24"
                         android:drawablePadding="10dp"
-                        android:inputType="number"
-
-                        android:text="261455555"
-                        tools:ignore="TouchTargetSizeCheck">
-
-                    </com.google.android.material.textfield.TextInputEditText>
+                        android:text="Le Duc Minh Tung"
+                        tools:ignore="TouchTargetSizeCheck"></com.google.android.material.textfield.TextInputEditText>
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:hint="Full Name">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtCustomerFullName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/ic_baseline_account_circle_24"
-                        android:drawablePadding="10dp"
-                        android:text="VuduyLinh"
-                        tools:ignore="TouchTargetSizeCheck">
-
-                    </com.google.android.material.textfield.TextInputEditText>
-                </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -143,7 +95,6 @@
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/ic_baseline_email_24"
                         android:drawablePadding="10dp"
-
                         android:text="vudytlinh1345@gmail.com"
                         tools:ignore="TouchTargetSizeCheck">
 
@@ -154,7 +105,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:hint="Phone number">
+                    android:hint="Số điện thoại">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtCustomerPhone"
@@ -171,12 +122,11 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
 
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:hint="Birthday">
+                    android:hint="Ngày sinh">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtCustomerBD"
@@ -186,26 +136,63 @@
                         android:drawablePadding="10dp"
                         android:inputType="date"
 
-                        android:text="2000-13-06"
+                        android:text="26/06/2000"
                         tools:ignore="TouchTargetSizeCheck">
 
                     </com.google.android.material.textfield.TextInputEditText>
                 </com.google.android.material.textfield.TextInputLayout>
 
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:hint="@string/select4">-->
+
+<!--                    <AutoCompleteTextView-->
+<!--                        android:id="@+id/txtCustomerGioiTinh"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:backgroundTint="@color/white"-->
+<!--                        android:drawableLeft="@drawable/ic_baseline_person_search_24"-->
+<!--                        android:drawablePadding="10dp"-->
+<!--                        android:inputType="none"-->
+<!--                        tools:ignore="TouchTargetSizeCheck" />-->
+
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="5dp"
+                                    android:hint="Giới tính">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/txtCustomerGioiTinh"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:drawableLeft="@drawable/ic_baseline_person_search_24"
+                                        android:drawablePadding="10dp"
+
+                                        android:text="Nam"
+                                        tools:ignore="TouchTargetSizeCheck">
+
+                                    </com.google.android.material.textfield.TextInputEditText>
+                                </com.google.android.material.textfield.TextInputLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:hint="Sex">
+                    android:hint="Mật khẩu">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtCustomerGioiTinh"
+                        android:id="@+id/txtMK"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/ic_baseline_person_search_24"
+                        android:drawableLeft="@drawable/ic_baseline_account_circle_24"
                         android:drawablePadding="10dp"
-
-                        android:text="Male"
+                        android:text="***"
                         tools:ignore="TouchTargetSizeCheck">
 
                     </com.google.android.material.textfield.TextInputEditText>
@@ -216,13 +203,13 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/md_blue_A700"
                     android:fontFamily="@font/baloo"
-
-                    android:text="Update"
                     android:onClick="Update"
+                    android:text="Cập nhật"
                     android:textColor="@color/white" />
 
             </LinearLayout>
         </ScrollView>
+
 
     </LinearLayout>
 

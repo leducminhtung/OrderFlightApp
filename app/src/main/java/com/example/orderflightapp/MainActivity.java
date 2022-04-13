@@ -1,6 +1,7 @@
 package com.example.orderflightapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private static int SPLASH_TIME_OUT = 3000;
+
 
     Animation topAmin, bottomAmin;
     ImageView image;

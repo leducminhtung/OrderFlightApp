@@ -17,8 +17,17 @@ public class FragmentHome extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_home, container, false);
+        View inf = inflater.inflate(R.layout.activity_home, container, false);
 
+        getViewId(inf);
+        setData();
+        return inf;
+    }
+    public void getViewId(View inf){
+        txtcustomer = (TextView) inf.findViewById(R.id.txtCustomer);
+    }
+    public void setData(){
+        txtcustomer.setText(LoginActivity.TaiKhoan.getTenkh());
     }
 
 

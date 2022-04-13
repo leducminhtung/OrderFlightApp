@@ -55,27 +55,31 @@ public class LoginActivity extends AppCompatActivity {
                 for (int i=0;i<data.size();i++){
                     if (UserName.equals(data.get(i).getCancuoc()) && PassWord.equals(data.get(i).getMatkhau())){
 
-                            dangnhapthanhcong = true;
-                            TaiKhoan = data.get(i);
-                            String s = TaiKhoan.getTenkh();
+                        dangnhapthanhcong = true;
+                        TaiKhoan = data.get(i);
+                        String s = TaiKhoan.getTenkh();
+                        List<TaiKhoanModel.Items> dataKH = response.body().getItems();
+                        Toast.makeText(getBaseContext(),"Đã lấy thông tin cá nhân !",Toast.LENGTH_SHORT).show();
 
 
-                            final Intent intent1 = new Intent(LoginActivity.this,Index.class);
-                            intent1.putExtra("traKhachDaNhap", TaiKhoan);
-                            intent1.putExtra("tenkh", s);
+                        for (int j=0;j<dataKH.size();j++){
+                            if (TaiKhoan.getCancuoc().equals(dataKH.get(j).getCancuoc())){
+                                TaiKhoan = data.get(j);
+                                Intent intent1 = new Intent(LoginActivity.this,Index.class);
+                                intent1.putExtra("traKhachDaNhap", TaiKhoan);
+                                intent1.putExtra("tenkh", s);
+                                intent1.putExtra("taikhoan", TaiKhoan);
+                                startActivity(intent1);
+                                break;
+                            }
+                        }
 
-                            startActivity(intent1);
+
 
                     }
 
                 }
                 if (dangnhapthanhcong == false) Toast.makeText(getBaseContext(),"Đăng nhập sai tài khoản hoặc mật khẩu !",Toast.LENGTH_SHORT).show();
-
-
-
-
-
-
 
 
             }
@@ -92,6 +96,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void GoForgotPass(View view) {
+        Intent i = new Intent(LoginActivity.this, ForgotPassword.class);
+        startActivity(i);
     }
 
     public void CreateAccount(View view) {

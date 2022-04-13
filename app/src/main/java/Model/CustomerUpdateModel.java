@@ -2,11 +2,9 @@ package Model;
 
 import java.io.Serializable;
 
-public class CustomerInsertModel
+public class CustomerUpdateModel
 {
     private String CANCUOC;
-
-    private String HANGTV;
 
     private String SDT;
 
@@ -28,16 +26,6 @@ public class CustomerInsertModel
     public void setCANCUOC (String CANCUOC)
     {
         this.CANCUOC = CANCUOC;
-    }
-
-    public String getHANGTV ()
-    {
-        return HANGTV;
-    }
-
-    public void setHANGTV (String HANGTV)
-    {
-        this.HANGTV = HANGTV;
     }
 
     public String getSDT ()
@@ -103,6 +91,6 @@ public class CustomerInsertModel
     @Override
     public String toString()
     {
-        return "ClassPojo [CANCUOC = "+CANCUOC+", HANGTV = "+HANGTV+", SDT = "+SDT+", TENKH = "+TENKH+", EMAIL = "+EMAIL+", MATKHAU = "+MATKHAU+", GIOITINH = "+GIOITINH+", NGAYSINH = "+NGAYSINH+"]";
+        return "ClassPojo [CANCUOC = "+CANCUOC+", SDT = "+SDT+", TENKH = "+TENKH+", EMAIL = "+EMAIL+", MATKHAU = "+MATKHAU+", GIOITINH = "+GIOITINH+", NGAYSINH = "+NGAYSINH+"]";
     }
 }

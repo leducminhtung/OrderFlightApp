@@ -18,8 +18,15 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="information_customer">Information customer</string>
     <string name="select">NƠI ĐI</string>
+    <string name="select4">GIỚI TÍNH</string>
     <string name="select1">NƠI ĐẾN</string>
     <string name="select2">NGÀY GIỜ ĐI</string>
     <string name="select3">NGÀY GIỜ VỀ</string>
+
+
+    <array name="gioitinh">
+        <item>Nam</item>
+        <item>Nữ</item>
+    </array>
 
 </resources>

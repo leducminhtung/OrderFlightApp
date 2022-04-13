@@ -6,7 +6,17 @@ public class AccountInsertModel implements Serializable
 {
     private String CANCUOC;
 
+    private String SDT;
+
+    private String TENKH;
+
+    private String EMAIL;
+
     private String MATKHAU;
+
+    private String GIOITINH;
+
+    private String NGAYSINH;
 
     public String getCANCUOC ()
     {
@@ -16,6 +26,36 @@ public class AccountInsertModel implements Serializable
     public void setCANCUOC (String CANCUOC)
     {
         this.CANCUOC = CANCUOC;
+    }
+
+    public String getSDT ()
+    {
+        return SDT;
+    }
+
+    public void setSDT (String SDT)
+    {
+        this.SDT = SDT;
+    }
+
+    public String getTENKH ()
+    {
+        return TENKH;
+    }
+
+    public void setTENKH (String TENKH)
+    {
+        this.TENKH = TENKH;
+    }
+
+    public String getEMAIL ()
+    {
+        return EMAIL;
+    }
+
+    public void setEMAIL (String EMAIL)
+    {
+        this.EMAIL = EMAIL;
     }
 
     public String getMATKHAU ()
@@ -28,9 +68,29 @@ public class AccountInsertModel implements Serializable
         this.MATKHAU = MATKHAU;
     }
 
+    public String getGIOITINH ()
+    {
+        return GIOITINH;
+    }
+
+    public void setGIOITINH (String GIOITINH)
+    {
+        this.GIOITINH = GIOITINH;
+    }
+
+    public String getNGAYSINH ()
+    {
+        return NGAYSINH;
+    }
+
+    public void setNGAYSINH (String NGAYSINH)
+    {
+        this.NGAYSINH = NGAYSINH;
+    }
+
     @Override
     public String toString()
     {
-        return "ClassPojo [CANCUOC = "+CANCUOC+", MATKHAU = "+MATKHAU+"]";
+        return "ClassPojo [CANCUOC = "+CANCUOC+", SDT = "+SDT+", TENKH = "+TENKH+", EMAIL = "+EMAIL+", MATKHAU = "+MATKHAU+", GIOITINH = "+GIOITINH+", NGAYSINH = "+NGAYSINH+"]";
     }
 }
