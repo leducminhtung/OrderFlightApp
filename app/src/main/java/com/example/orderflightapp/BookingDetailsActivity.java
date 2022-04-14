@@ -53,8 +53,17 @@ public class BookingDetailsActivity extends AppCompatActivity {
         txtThoiLuongBay.setText(chuyenbaydachon.getThoiluongcb() + "phút");
         txtSLHK.setText(String.valueOf(slHK));
         txtGiaTienHK.setText(chuyenbaydachon.getGv());
-        txtTGDung.setText(chuyenbaydachon.getThoigiandung() + "phút");
-        txtTrungChuyen.setText(chuyenbaydachon.getGhichu());
+        if(chuyenbaydachon.getThoigiandung() == null){
+            txtTGDung.setEnabled(false);
+        }else{
+            txtTGDung.setText(chuyenbaydachon.getThoigiandung() + "phút");
+        }
+        if(chuyenbaydachon.getGhichu() == null){
+            txtTrungChuyen.setEnabled(false);
+        }else {
+            txtTrungChuyen.setText(chuyenbaydachon.getGhichu());
+        }
+
 
         double GiaHK = Double.parseDouble(txtGiaTienHK.getText().toString());
 

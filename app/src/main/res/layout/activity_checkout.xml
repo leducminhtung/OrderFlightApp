@@ -9,16 +9,17 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
         android:background="@drawable/header_background2">
 
         <TextView
-            android:textSize="18sp"
+            android:textSize="30dp"
             android:textColor="@color/white"
             android:fontFamily="@font/baloo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Payment Details"
+            android:text="Thông tin thanh toán"
             android:gravity="center"
             />
     </LinearLayout>
@@ -26,158 +27,249 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:background="@drawable/shadow"
-        android:translationZ="4dp"
         android:elevation="2dp"
         android:orientation="vertical"
-        android:layout_margin="10dp"
         android:padding="2dp"
-        >
+        android:translationZ="4dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:orientation="horizontal"
             android:layout_height="wrap_content"
-            android:layout_gravity="left">
+            android:layout_gravity="left"
+            android:padding="5dp"
+            android:orientation="horizontal">
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Aircraft Class"
-                android:textColor="@color/black"
-                android:fontFamily="@font/baloo"
                 android:layout_marginRight="50dp"
-                />
+                android:fontFamily="@font/baloo"
+                android:text="Hãng bay"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
 
             <TextView
-
-                android:id="@+id/txtCheck_TenHang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="VietNam airlines" />
+                android:text="BamBoo Airways" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
-            android:orientation="horizontal"
             android:layout_height="wrap_content"
-            android:layout_gravity="left">
+            android:layout_gravity="left"
+            android:padding="5dp"
+            android:orientation="horizontal">
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Airpane Name"
-                android:textColor="@color/black"
-                android:fontFamily="@font/baloo"
                 android:layout_marginRight="47dp"
-                />
+                android:fontFamily="@font/baloo"
+                android:text="Máy bay"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/txtCheck_TenMayBay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="VietNam airlines" />
+                android:textSize="15dp"
+                android:text="Airbus A320-200" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:orientation="horizontal"
             android:layout_height="wrap_content"
-
-            android:layout_gravity="left">
+            android:layout_gravity="left"
+            android:padding="5dp"
+            android:orientation="horizontal">
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Destination"
-                android:textColor="@color/black"
-                android:fontFamily="@font/baloo"
-
                 android:layout_marginRight="50dp"
-                />
+                android:fontFamily="@font/baloo"
+                android:text="Địa điểm"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
 
             <TextView
 
-                android:id="@+id/txtCheck_TenCangDi"
+                android:id="@+id/txtCheck_MaCangDi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="HCM city" />
+                android:text="HCM city"
+                android:layout_marginRight="5dp"
+                android:textSize="15dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/ic_baseline_arrow_right_alt_24"
-                />
+                android:textSize="15dp"
+                android:background="@drawable/ic_baseline_arrow_right_alt_24" />
 
             <TextView
 
-                android:id="@+id/txtCheck_TenCangDen"
+                android:id="@+id/txtCheck_MaCangDen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="DaLat" />
+                android:text="DaLat"
+                android:textSize="15dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:orientation="horizontal"
             android:layout_height="wrap_content"
-
-            android:layout_gravity="left">
+            android:layout_gravity="left"
+            android:padding="5dp"
+            android:orientation="horizontal">
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Time"
-                android:textColor="@color/black"
-                android:fontFamily="@font/baloo"
                 android:layout_marginRight="50dp"
-                />
+                android:fontFamily="@font/baloo"
+                android:text="Ngày giờ đi"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/txtCheck_NgayGioDi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo"
-
                 android:text="13-06-2022 9:00 AM" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="to"
-                android:layout_marginRight="5dp"
-                android:layout_marginLeft="5dp"
-                />
 
-            <TextView
-                android:id="@+id/txtCheck_NgayGioDen"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/baloo"
-                android:text="15-06-2022 22:00 PM" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
-            android:orientation="horizontal"
             android:layout_height="wrap_content"
-            android:layout_gravity="left">
+            android:layout_gravity="left"
+            android:padding="5dp"
+            android:orientation="horizontal">
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Passenger"
-                android:textColor="@color/black"
                 android:fontFamily="@font/baloo"
+                android:text="Thông tin người mua:"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:padding="5dp"
+            android:layout_marginLeft="50dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginRight="50dp"
-                />
+                android:fontFamily="@font/baloo"
+                android:text="Căn cước:"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/txtCheck_CC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="026076251"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:padding="5dp"
+            android:layout_marginLeft="50dp"
+            android:orientation="horizontal">
 
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="50dp"
+                android:fontFamily="@font/baloo"
+                android:text="Họ và tên:"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/txtCheck_hoten"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Le Duc Minh Tung"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:orientation="horizontal"
+            android:layout_marginLeft="50dp"
+            android:padding="5dp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="87dp"
+                android:fontFamily="@font/baloo"
+                android:text="SDT:"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/txtCheck_sdt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0867099180"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:padding="5dp"
+            android:layout_marginLeft="50dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="75dp"
+                android:fontFamily="@font/baloo"
+                android:text="Email:"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/txtCheck_Email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ldmtung@gmail.com"
+                android:textSize="15dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -185,266 +277,86 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
+            android:padding="5dp"
             android:orientation="horizontal">
-
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="2dp"
-                android:text="Adult: "
-                android:textColor="@color/black" />
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/baloo"
+                android:text="Số lượng: "
+                android:textColor="@color/black"
+                android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/txtCheck_SLNguoiLon"
+                android:id="@+id/txtCheck_SL"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginRight="35dp"
                 android:text="0"
+                android:textSize="18dp"
                 android:textColor="@color/black" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginRight="2dp"
-                android:text="PRICE:" />
-
-            <TextView
-                android:id="@+id/txtCheck_GiaNL"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:text="5000000"
-                android:textColor="@color/yellow" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="2dp"
-                android:text="TAX:" />
-
-            <TextView
-                android:id="@+id/txtCheck_GiaThueNL"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:text="500000"
-                android:textColor="@color/yellow" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="2dp"
-                android:text="SVC:" />
-
-            <TextView
-                android:id="@+id/txtCheck_GiaDVNL"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="20dp"
-                android:text="100000"
-                android:textColor="@color/yellow" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/lnrCheck_TreEm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:orientation="horizontal">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
-                android:text="Children: "
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/txtCheck_SLTreEm"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="13dp"
-                android:text="0"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="2dp"
-                android:text="PRICE:" />
-
-            <TextView
-                android:id="@+id/txtCheck_GiaTE"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:text="5000000"
-                android:textColor="@color/yellow" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="2dp"
-                android:text="TAX:" />
-
-            <TextView
-                android:id="@+id/txtCheck_GiaThueTE"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:text="500000"
-                android:textColor="@color/yellow" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="2dp"
-                android:text="SVC:" />
-
-            <TextView
-                android:id="@+id/txtCheck_GiaDVTE"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="20dp"
-                android:text="100000"
-                android:textColor="@color/yellow" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/lnrCheck_EmBe"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:orientation="horizontal">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
-                android:text="Baby: "
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/txtCheck_SLEmBe"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="33dp"
-                android:text="0"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="2dp"
-                android:text="PRICE:" />
-
-            <TextView
-                android:id="@+id/txtCheck_GiaEB"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:text="5000000"
-                android:textColor="@color/yellow" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="2dp"
-                android:text="TAX:" />
-
-            <TextView
-                android:id="@+id/txtCheck_GiaThueEB"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:text="500000"
-                android:textColor="@color/yellow" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="2dp"
-                android:text="SVC:" />
-
-            <TextView
-                android:id="@+id/txtCheck_GiaDVEB"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="20dp"
-                android:text="100000"
-                android:textColor="@color/yellow" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content"
-
-            android:padding="10dp"
-            android:layout_gravity="left">
-
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Total price:"
-                android:textColor="@color/black"
                 android:fontFamily="@font/baloo"
-                android:textSize="15sp"
+                android:text="Giá:"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/txtCheck_Gia"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:textSize="18dp"
+                android:text="5000000"
+                android:textColor="@color/yellow" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginRight="50dp"
-                />
+                android:fontFamily="@font/baloo"
+                android:text="Tổng giá:"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/txtCheck_SumPrice"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="300$"
                 android:textColor="@color/yellow"
-                android:textSize="15sp" />
+                android:textSize="18dp" />
         </LinearLayout>
 
 
-
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="horizontal"
-        android:gravity="center"
-        tools:context=".Activity.CheckOutActivity">
 
-        <ListView
-            android:id="@+id/lvCheck"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:padding="5dp"
         android:gravity="center">
 
-        <Button
-            android:id="@+id/btnThanhToan"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="50dp"
-            android:backgroundTint="@color/md_red_500"
-            android:fontFamily="@font/baloo"
-            android:onClick="ThanhToan"
-            android:text="OK"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+
 
         <Button
             android:id="@+id/btnCancel"
@@ -453,7 +365,18 @@
             android:backgroundTint="@color/md_blue_A700"
             android:fontFamily="@font/baloo"
             android:onClick="Back"
-            android:text="Cancel"
+            android:text="HỦY"
+            android:layout_marginRight="50dp"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+        <Button
+            android:id="@+id/btnThanhToan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/md_red_500"
+            android:fontFamily="@font/baloo"
+            android:onClick="ThanhToan"
+            android:text="THANH TOÁN"
             android:textColor="@color/white"
             android:textSize="20sp" />
     </LinearLayout>

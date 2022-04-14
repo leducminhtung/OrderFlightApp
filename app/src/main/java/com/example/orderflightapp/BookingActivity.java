@@ -129,8 +129,10 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
     public void LayCangBay(){
         List<String> dsTenCang = new ArrayList<>();
 
+
         for(int i=0;i<cangBayAdapter.size();i++){
             dsTenCang.add(cangBayAdapter.get(i).getTencang());
+
         }
 
         String[] items = {"SGN", "HAN", "DAD", "ASH"};
