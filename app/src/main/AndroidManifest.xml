@@ -4,6 +4,10 @@
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <queries>
+        <package android:name="vn.com.vng.zalopay" />
+        <package android:name="vn.com.vng.zalopay.sbmc" />
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -27,9 +31,12 @@
             android:name=".RegisterUser"
             android:exported="false" />
         <activity
+
             android:screenOrientation = "portrait"
             android:name=".BookingDetailsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleTask"></activity>
+
         <activity
             android:screenOrientation = "portrait"
             android:name=".ListBooking"
@@ -55,10 +62,19 @@
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
+
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="demozpdk"
+                    android:host="app" />
+            </intent-filter>
+
         </activity>
     </application>
 
