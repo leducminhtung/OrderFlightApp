@@ -48,7 +48,7 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
     List<CangModel.Items> cangBayAdapter = new ArrayList<>();
     private List<ChuyenBayModel.Items> data;
 
-    AutoCompleteTextView NoiDen,NoiDi,NgayVe,NgayDi;
+    AutoCompleteTextView NoiDen,NoiDi,NgayVe,NgayDi,NoiDi1, Noiden2;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,11 +128,12 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
 
     public void LayCangBay(){
         List<String> dsTenCang = new ArrayList<>();
-
+        List<String> dsMaCang = new ArrayList<>();
+        List<CangModel.Items> dscang = new ArrayList<>();
 
         for(int i=0;i<cangBayAdapter.size();i++){
             dsTenCang.add(cangBayAdapter.get(i).getTencang());
-
+            dsMaCang.add(cangBayAdapter.get(i).getMacang());
         }
 
         String[] items = {"SGN", "HAN", "DAD", "ASH"};
@@ -140,6 +141,8 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 R.layout.dropdown_items, dsTenCang);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,
+                R.layout.dropdown_items, dsMaCang);
 
 
         NoiDi.setAdapter(adapter);
@@ -196,6 +199,16 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
                 String noidi = NoiDi.getText().toString();
                 String ngaydi = NgayDi.getText().toString().replace('/','_');
                 Methods methods = getRetrofit().create(Methods.class);
+                for(int i=0;i<cangBayAdapter.size();i++){
+                  if(noiden.equals(cangBayAdapter.get(i).getTencang())) {
+                      noiden = cangBayAdapter.get(i).getMacang();
+                      Toast.makeText(this, noiden, Toast.LENGTH_SHORT).show();
+                  }
+                    if(noidi.equals(cangBayAdapter.get(i).getTencang())) {
+                        noidi = cangBayAdapter.get(i).getMacang();
+                        Toast.makeText(this, noidi, Toast.LENGTH_SHORT).show();
+                    }
+                }
                 Call<ChuyenBayModel> call = methods.GetChuyenBayTH(noidi, noiden, ngaydi);
                 call.enqueue(new Callback<ChuyenBayModel>() {
                     @Override
@@ -225,6 +238,14 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
                 String noidi = NoiDi.getText().toString();
                 String ngaydi = NgayDi.getText().toString().replace('/','_');
                 Methods methods = getRetrofit().create(Methods.class);
+                for(int i=0;i<cangBayAdapter.size();i++){
+                    if(noiden.equals(cangBayAdapter.get(i).getTencang())) {
+                        noiden = cangBayAdapter.get(i).getMacang();
+                    }
+                    if(noidi.equals(cangBayAdapter.get(i).getTencang())) {
+                        noidi = cangBayAdapter.get(i).getMacang();
+                    }
+                }
                 Call<ChuyenBayModel> call = methods.GetChuyenBayTG(noidi, noiden, ngaydi);
                 call.enqueue(new Callback<ChuyenBayModel>() {
                     @Override

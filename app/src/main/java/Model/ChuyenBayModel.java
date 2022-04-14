@@ -131,11 +131,9 @@ public class ChuyenBayModel implements Serializable
 
         private String ngaybay;
 
-        private String tencangdi;
 
         private String gv;
 
-        private String tencangden;
 
         private String thoigiandung;
 
@@ -203,13 +201,6 @@ public class ChuyenBayModel implements Serializable
             this.ngaybay = ngaybay;
         }
 
-        public String getTencangdi() {
-            return tencangdi;
-        }
-
-        public void setTencangdi(String tencangdi) {
-            this.tencangdi = tencangdi;
-        }
 
         public String getGv() {
             return gv;
@@ -217,14 +208,6 @@ public class ChuyenBayModel implements Serializable
 
         public void setGv(String gvht) {
             this.gv = gvht;
-        }
-
-        public String getTencangden() {
-            return tencangden;
-        }
-
-        public void setTencangden(String tencangden) {
-            this.tencangden = tencangden;
         }
 
         public String getThoigiandung() {
@@ -237,7 +220,7 @@ public class ChuyenBayModel implements Serializable
 
         @Override
         public String toString() {
-            return "ClassPojo [macb = " + macb + ", macangden = " + macangden + ", tenmb = " + tenmb + ", giobay = " + giobay + ", ghichu = " + ghichu + ", thoiluongcb = " + thoiluongcb + ", macangdi = " + macangdi + ", ngaybay = " + ngaybay + ", tencangdi = " + tencangdi + ", gvht = " + gv + ", tencangden = " + tencangden + ", thoigiandung = " + thoigiandung + "]";
+            return "ClassPojo [macb = " + macb + ", macangden = " + macangden + ", tenmb = " + tenmb + ", giobay = " + giobay + ", ghichu = " + ghichu + ", thoiluongcb = " + thoiluongcb + ", macangdi = " + macangdi + ", ngaybay = " + ngaybay + ", gvht = " + gv + ", thoigiandung = " + thoigiandung + "]";
         }
     }
 }

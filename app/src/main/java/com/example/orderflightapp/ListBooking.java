@@ -50,6 +50,7 @@ public class ListBooking extends AppCompatActivity {
                 i.putExtra("ChuyenBayDaChon", item);
                 i.putExtra("SL_HanhKhach", SL_HanhKhach);
 
+
                 startActivity(i);
             }
         });

@@ -19,10 +19,10 @@ public interface Methods {
     Call<CangModel> GetCangs() ;
 
     @GET("ords/datve/cbmanage/searchcbth")
-    Call<ChuyenBayModel> GetChuyenBayTH(@Query("TENCANGDI") String TENCANGDI, @Query("TENCANGDEN") String TENCANGDEN, @Query("NGAYBAY") String NGAYBAY);
+    Call<ChuyenBayModel> GetChuyenBayTH(@Query("MACANGDI") String MACANGDI, @Query("MACANGDEN") String MACANGDEN, @Query("NGAYBAY") String NGAYBAY);
 
     @GET("ords/datve/cbmanage/searchcbtg")
-    Call<ChuyenBayModel> GetChuyenBayTG(@Query("TENCANGDI") String TENCANGDI, @Query("TENCANGDEN") String TENCANGDEN, @Query("NGAYBAY") String NGAYBAY);
+    Call<ChuyenBayModel> GetChuyenBayTG(@Query("MACANGDI") String MACANGDI, @Query("MACANGDEN") String MACANGDEN, @Query("NGAYBAY") String NGAYBAY);
 
     @GET("ords/datve/khachhang")
     Call<TaiKhoanModel> GetTaiKhoan();

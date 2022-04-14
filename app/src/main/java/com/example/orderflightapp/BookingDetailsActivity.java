@@ -1,14 +1,28 @@
 package com.example.orderflightapp;
 
+import static Model.RetrofitClient.getRetrofit;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import InterfaceReponsitory.Methods;
+import Model.CangModel;
 import Model.ChuyenBayModel;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class BookingDetailsActivity extends AppCompatActivity {
 
@@ -16,6 +30,8 @@ public class BookingDetailsActivity extends AppCompatActivity {
     TextView txtTenCangDi,txtTenCangDen,txtNgayGioDi, txtThoiLuongBay, txtSLHK, txtGiaTienHK, txtTongTien, txtTrungChuyen, txtTGDung;
     LinearLayout lnr_details_hk;
     int slHK = 0;
+    List<CangModel.Items> cangBayAdapter = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +58,35 @@ public class BookingDetailsActivity extends AppCompatActivity {
 
 
     }
+
+
     public void GetDataItem(){
         Intent intent = getIntent();
         slHK = intent.getIntExtra("SL_HanhKhach", 0);
+        String cangdi = chuyenbaydachon.getMacangdi();
+        String cangden = chuyenbaydachon.getMacangden();
+        Methods methods = getRetrofit().create(Methods.class);
+        Call<CangModel> call = methods.GetCangs();
+        call.enqueue(new Callback<CangModel>() {
+            @Override
+            public void onResponse(Call<CangModel> call, Response<CangModel> response) {
+                List<CangModel.Items> data = response.body().getItems();
+                cangBayAdapter= data;
+                for(int i = 0; i<cangBayAdapter.size();i++){
+                    if(cangdi.equals(cangBayAdapter.get(i).getMacang())){
+                        txtTenCangDi.setText(cangBayAdapter.get(i).getTencang());
+                    }else if(cangden.equals(cangBayAdapter.get(i).getMacang())){
+                        txtTenCangDen.setText(cangBayAdapter.get(i).getTencang());
+                    }
+                }
+            }
 
+            @Override
+            public void onFailure(Call<CangModel> call, Throwable t) {
 
-        txtTenCangDi.setText(chuyenbaydachon.getTencangdi());
-        txtTenCangDen.setText(chuyenbaydachon.getTencangden());
+            }
+        });
+
         txtNgayGioDi.setText(chuyenbaydachon.getGiobay() +" "+chuyenbaydachon.getNgaybay());
         txtThoiLuongBay.setText(chuyenbaydachon.getThoiluongcb() + "phút");
         txtSLHK.setText(String.valueOf(slHK));
@@ -84,5 +122,7 @@ public class BookingDetailsActivity extends AppCompatActivity {
     }
 
     public void BackToList(View view) {
+        Intent i = new Intent(BookingDetailsActivity.this, BookingActivity.class);
+        startActivity(i);
     }
 }
