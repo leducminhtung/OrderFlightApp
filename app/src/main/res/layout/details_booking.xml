@@ -318,12 +318,12 @@
         <Button
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="ĐỒNG Ý"
+            android:text="THANH TOÁN"
             android:textColor="@color/white"
             android:backgroundTint="@color/md_red_500"
             android:textSize="20sp"
             android:fontFamily="@font/baloo"
-            android:onClick="GoToInfoCustomer"/>
+            android:onClick="GoToPay"/>
     </LinearLayout>
 
 

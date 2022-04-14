@@ -114,7 +114,6 @@ public class RegisterUser extends AppCompatActivity {
                         taiKhoanInsertModel.setGIOITINH("1");
                     }
 
-
                     Methods methods = getRetrofit().create(Methods.class);
                     Call<CallbackResultModel> call2 = methods.InsertAccount(taiKhoanInsertModel);
                     call2.enqueue(new Callback<CallbackResultModel>() {

@@ -18,8 +18,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import InterfaceReponsitory.Methods;
+import Model.CallbackResultModel;
 import Model.CangModel;
 import Model.ChuyenBayModel;
+import Model.PhieuMuaVeInsertModel;
+import Model.PhieuMuaVeModel;
+import Model.VeInsertModel;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -89,15 +93,16 @@ public class BookingDetailsActivity extends AppCompatActivity {
 
         txtNgayGioDi.setText(chuyenbaydachon.getGiobay() +" "+chuyenbaydachon.getNgaybay());
         txtThoiLuongBay.setText(chuyenbaydachon.getThoiluongcb() + "phút");
+//        txtThoiLuongBay.setText(chuyenbaydachon.getTenmb());
         txtSLHK.setText(String.valueOf(slHK));
         txtGiaTienHK.setText(chuyenbaydachon.getGv());
         if(chuyenbaydachon.getThoigiandung() == null){
-            txtTGDung.setEnabled(false);
+            txtTGDung.setVisibility(View.GONE);
         }else{
             txtTGDung.setText(chuyenbaydachon.getThoigiandung() + "phút");
         }
         if(chuyenbaydachon.getGhichu() == null){
-            txtTrungChuyen.setEnabled(false);
+            txtTrungChuyen.setVisibility(View.GONE);
         }else {
             txtTrungChuyen.setText(chuyenbaydachon.getGhichu());
         }
@@ -124,5 +129,99 @@ public class BookingDetailsActivity extends AppCompatActivity {
     public void BackToList(View view) {
         Intent i = new Intent(BookingDetailsActivity.this, BookingActivity.class);
         startActivity(i);
+    }
+
+    public void GoToPay(View view) {
+
+        Methods methodsNhapPhieu = getRetrofit().create(Methods.class);
+        PhieuMuaVeInsertModel phieu = new PhieuMuaVeInsertModel();
+        phieu.setCANCUOC(LoginActivity.TaiKhoan.getCancuoc());
+        phieu.setSLVE(txtSLHK.getText().toString());
+        phieu.setTHANHTIEN(txtTongTien.getText().toString().replace("đ",""));
+
+        Call<CallbackResultModel> call =methodsNhapPhieu.InsertPhieu(phieu);
+        call.enqueue(new Callback<CallbackResultModel>() {
+            @Override
+            public void onResponse(Call<CallbackResultModel> call, Response<CallbackResultModel> response) {
+                String status = response.body().getSTATUS_OUT();
+                String value = response.body().getVALUE_OUT();
+                if(status.equals("TRUE")){
+                    Toast.makeText(getBaseContext(), "Thêm danh sách hóa đơn thành công!" + value, Toast.LENGTH_SHORT).show();
+                    Methods methodsLayPhieu = getRetrofit().create(Methods.class);
+                    Call<PhieuMuaVeModel> callPhieu = methodsLayPhieu.GetPhieuMuaVe();
+                    callPhieu.enqueue(new Callback<PhieuMuaVeModel>() {
+                        @Override
+                        public void onResponse(Call<PhieuMuaVeModel> call, Response<PhieuMuaVeModel> response) {
+                            Toast.makeText(getBaseContext(),"Lấy danh sách hóa đơn!",Toast.LENGTH_SHORT).show();
+                            List<PhieuMuaVeModel.Items> items = response.body().getItems();
+                            VeInsertModel veInsertModel =new VeInsertModel();
+//                            String limitth = "1000000";
+//                            String limittg = "2000000";
+                                if(chuyenbaydachon.getGv().equals("1000000")){
+                                    veInsertModel.setMAPHEU(value);
+                                    veInsertModel.setCANCUOC(LoginActivity.TaiKhoan.getCancuoc());
+                                    veInsertModel.setMACB(chuyenbaydachon.getMacb());
+                                    veInsertModel.setTIENVE(chuyenbaydachon.getGv());
+                                    Methods methodVeTh =getRetrofit().create(Methods.class);
+                                    Call<CallbackResultModel> callVeTH =methodVeTh.InsertVeTh(veInsertModel);
+                                    callVeTH.enqueue(new Callback<CallbackResultModel>() {
+                                        @Override
+                                        public void onResponse(Call<CallbackResultModel> call, Response<CallbackResultModel> response) {
+                                            String status = response.body().getSTATUS_OUT();
+                                            if(status.equals("TRUE")){
+                                                Toast.makeText(getBaseContext(), "Thanh toán thành công!", Toast.LENGTH_SHORT).show();
+                                                Intent intent = new Intent(BookingDetailsActivity.this, Index.class);
+                                                startActivity(intent);
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<CallbackResultModel> call, Throwable t) {
+                                            Toast.makeText(getBaseContext(), "Thanh toán thất bại!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
+                                }else if(chuyenbaydachon.getGv().equals("2000000")){
+                                    veInsertModel.setMAPHEU(value);
+                                    veInsertModel.setCANCUOC(LoginActivity.TaiKhoan.getCancuoc());
+                                    veInsertModel.setMACB(chuyenbaydachon.getMacb());
+                                    veInsertModel.setTIENVE(chuyenbaydachon.getGv());
+                                    Methods methodVeTG =getRetrofit().create(Methods.class);
+                                    Call<CallbackResultModel> callVeTH =methodVeTG.InsertVeTG(veInsertModel);
+                                    callVeTH.enqueue(new Callback<CallbackResultModel>() {
+                                        @Override
+                                        public void onResponse(Call<CallbackResultModel> call, Response<CallbackResultModel> response) {
+                                            String status = response.body().getSTATUS_OUT();
+                                            if(status.equals("TRUE")){
+                                                Toast.makeText(getBaseContext(), "Thanh toán thành công!", Toast.LENGTH_SHORT).show();
+                                                Intent intent = new Intent(BookingDetailsActivity.this, Index.class);
+                                                startActivity(intent);
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<CallbackResultModel> call, Throwable t) {
+                                            Toast.makeText(getBaseContext(), "Thanh toán thất bại!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }
+                            }
+
+
+                        @Override
+                        public void onFailure(Call<PhieuMuaVeModel> call, Throwable t) {
+
+                        }
+                    });
+                }else{
+                    Toast.makeText(getBaseContext(), "Thêm phiếu mua vé thất bại!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CallbackResultModel> call, Throwable t) {
+
+            }
+        });
     }
 }

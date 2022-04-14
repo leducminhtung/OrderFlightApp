@@ -6,7 +6,10 @@ import Model.CallbackResultModel;
 import Model.CangModel;
 import Model.ChuyenBayModel;
 import Model.CustomerUpdateModel;
+import Model.PhieuMuaVeInsertModel;
+import Model.PhieuMuaVeModel;
 import Model.TaiKhoanModel;
+import Model.VeInsertModel;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -27,9 +30,21 @@ public interface Methods {
     @GET("ords/datve/khachhang")
     Call<TaiKhoanModel> GetTaiKhoan();
 
+    @GET("ords/datve/phieumuave")
+    Call<PhieuMuaVeModel> GetPhieuMuaVe();
+
     @PUT("ords/datve/custmanage/update-account")
     Call<CallbackResultModel> UpdateCust(@Body CustomerUpdateModel customerUpdateModel);
 
     @POST("ords/datve/custmanage/insertcust")
     Call<CallbackResultModel> InsertAccount(@Body AccountInsertModel accountInsertModel);
+
+    @POST("ords/datve/pmvmanage/insert_pmv")
+    Call<CallbackResultModel> InsertPhieu(@Body PhieuMuaVeInsertModel phieuMuaVeInsertModel);
+
+    @POST("ords/datve/vemanage/addvetg")
+    Call<CallbackResultModel> InsertVeTG(@Body VeInsertModel veInsertModel);
+
+    @POST("ords/datve/vemanage/addveth")
+    Call<CallbackResultModel> InsertVeTh(@Body VeInsertModel veInsertModel);
 }
