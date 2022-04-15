@@ -6,6 +6,7 @@ import Model.CallbackResultModel;
 import Model.CangModel;
 import Model.ChuyenBayModel;
 import Model.CustomerUpdateModel;
+import Model.HistoryModel;
 import Model.PhieuMuaVeInsertModel;
 import Model.PhieuMuaVeModel;
 import Model.TaiKhoanModel;
@@ -32,6 +33,9 @@ public interface Methods {
 
     @GET("ords/datve/phieumuave")
     Call<PhieuMuaVeModel> GetPhieuMuaVe();
+
+    @GET("ords/datve/vemanage/history")
+    Call<HistoryModel> GetHistory(@Query("CANCUOC") String CANCUOC);
 
     @PUT("ords/datve/custmanage/update-account")
     Call<CallbackResultModel> UpdateCust(@Body CustomerUpdateModel customerUpdateModel);

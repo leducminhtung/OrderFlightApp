@@ -32,15 +32,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="HÃNG BAY"
+                android:text="MÁY BAY"
                 android:textColor="@color/black"
                 android:fontFamily="@font/baloo"
-                android:textSize="20sp"
+                android:textSize="18dp"
                 android:layout_marginRight="50dp"
                 />
 
             <TextView
-                android:id="@+id/txtTenHang_layoutDetails"
+                android:id="@+id/txtTenMB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo"
@@ -62,7 +62,7 @@
                 android:text="NƠI ĐI"
                 android:textColor="@color/black"
                 android:fontFamily="@font/baloo"
-                android:textSize="20sp"
+                android:textSize="18dp"
                 android:layout_marginRight="20dp"
                 />
 
@@ -86,12 +86,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/baloo"
                 android:text="NƠI ĐẾN"
                 android:textColor="@color/black"
-                android:fontFamily="@font/baloo"
-                android:textSize="20sp"
-                android:layout_marginRight="20dp"
-                />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtTenCangDen"
@@ -116,7 +115,7 @@
                 android:text="THỜI GIAN ĐI"
                 android:textColor="@color/black"
                 android:fontFamily="@font/baloo"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_marginRight="50dp"
                 />
             <TextView
@@ -142,7 +141,7 @@
                 android:textColor="@color/black"
                 android:text="THỜI LƯỢNG BAY"
                 android:layout_marginRight="50dp"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtThoiLuongBay"
@@ -173,7 +172,7 @@
                     android:text="TRẠM DỪNG:"
                     android:layout_marginRight="20dp"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/txtTrungChuyen"
@@ -198,7 +197,7 @@
                     android:text="THỜI GIAN DỪNG:"
                     android:layout_marginRight="20dp"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/txtTGdung"
@@ -209,8 +208,6 @@
                     android:textSize="18sp" />
 
             </LinearLayout>
-
-
 
 
         </LinearLayout>
@@ -236,7 +233,7 @@
                     android:text="SỐ LƯỢNG:"
                     android:layout_marginRight="20dp"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/txtSL_HK"
@@ -246,16 +243,16 @@
                     android:text="0"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
+
                 <TextView
-                    android:id="@+id/txtPriceHK"
+                    android:id="@+id/txtCheck_Price"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="50dp"
-                    android:text="1000$"
+                    android:layout_height="wrap_content"
+                    android:text="300$"
                     android:textColor="@color/yellow"
                     android:textSize="20sp" />
-            </LinearLayout>
 
+            </LinearLayout>
 
 
 
@@ -283,7 +280,7 @@
                 android:text="TỔNG TIỀN"
                 android:textColor="@color/black"
                 android:fontFamily="@font/baloo"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_marginRight="50dp"
                 />
 
@@ -306,22 +303,22 @@
         android:gravity="center"
         >
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
             android:text="QUAY VỀ"
             android:textColor="@color/white"
             android:backgroundTint="@color/md_blue_A700"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:layout_marginRight="50dp"
             android:fontFamily="@font/baloo"
             android:onClick="BackToList"/>
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
             android:text="THANH TOÁN"
             android:textColor="@color/white"
             android:backgroundTint="@color/md_red_500"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:fontFamily="@font/baloo"
             android:onClick="GoToPay"/>
     </LinearLayout>

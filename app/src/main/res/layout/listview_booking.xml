@@ -44,7 +44,7 @@
                 android:textSize="20dp"
                 android:gravity="center"
                 android:fontFamily="@font/baloo"
-                android:paddingTop="20dp"
+                android:padding = "10dp"
                 android:background="@drawable/search_icon_background">
 
             </TextView>

@@ -40,7 +40,7 @@ import vn.zalopay.sdk.listeners.PayOrderListener;
 public class BookingDetailsActivity extends AppCompatActivity {
 
     ChuyenBayModel.Items chuyenbaydachon;
-    TextView txtTenCangDi,txtTenCangDen,txtNgayGioDi, txtThoiLuongBay, txtSLHK, txtGiaTienHK, txtTongTien, txtTrungChuyen, txtTGDung;
+    TextView txtTenCangDi,txtTenCangDen,txtNgayGioDi, txtThoiLuongBay, txtMB, txtSLHK, txtGiaTienHK, txtTongTien, txtTrungChuyen, txtTGDung;
     LinearLayout lnr_details_hk;
     int slHK = 0;
     int flag = 0;
@@ -70,10 +70,11 @@ public class BookingDetailsActivity extends AppCompatActivity {
         txtTenCangDen = findViewById(R.id.txtTenCangDen);
         txtNgayGioDi = findViewById(R.id.txtNgayGioDi);
         txtSLHK = findViewById(R.id.txtSL_HK);
-        txtGiaTienHK = findViewById(R.id.txtPriceHK);
         txtThoiLuongBay = findViewById(R.id.txtThoiLuongBay);
         txtTongTien = findViewById(R.id.txtCheck_SumPrice);
         lnr_details_hk = findViewById(R.id.lnr_detais_hk);
+        txtMB = findViewById(R.id.txtTenMB);
+        txtGiaTienHK = findViewById(R.id.txtCheck_Price);
 
 
     }
@@ -118,8 +119,13 @@ public class BookingDetailsActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
 
+    }
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        ZaloPaySDK.getInstance().onResult(intent);
+    }
 
     public void GetDataItem(){
         Intent intent = getIntent();
@@ -152,14 +158,15 @@ public class BookingDetailsActivity extends AppCompatActivity {
         txtThoiLuongBay.setText(chuyenbaydachon.getThoiluongcb() + "phút");
 //        txtThoiLuongBay.setText(chuyenbaydachon.getTenmb());
         txtSLHK.setText(String.valueOf(slHK));
+        txtMB.setText(chuyenbaydachon.getTenmb());
         txtGiaTienHK.setText(chuyenbaydachon.getGv());
         if(chuyenbaydachon.getThoigiandung() == null){
-            txtTGDung.setVisibility(View.GONE);
+            txtTGDung.setEnabled(false);
         }else{
             txtTGDung.setText(chuyenbaydachon.getThoigiandung() + "phút");
         }
         if(chuyenbaydachon.getGhichu() == null){
-            txtTrungChuyen.setVisibility(View.GONE);
+            txtTrungChuyen.setEnabled(false);
         }else {
             txtTrungChuyen.setText(chuyenbaydachon.getGhichu());
         }
@@ -169,7 +176,7 @@ public class BookingDetailsActivity extends AppCompatActivity {
 
         double tong = GiaHK * slHK;
 
-        txtTongTien.setText(Double.toString(tong).replace(".0","") + "đ");
+        txtTongTien.setText(Double.toString(tong).replace(".0",""));
     }
 
     @Override
@@ -224,12 +231,12 @@ public class BookingDetailsActivity extends AppCompatActivity {
                                         @Override
                                         public void onResponse(Call<CallbackResultModel> call, Response<CallbackResultModel> response) {
                                             String status = response.body().getSTATUS_OUT();
-                                            if(status.equals("TRUE")){
-                                                ThanhtoanZalo();
-                                                Toast.makeText(getBaseContext(), "Thanh toán thành công!", Toast.LENGTH_SHORT).show();
-                                                Intent intent = new Intent(BookingDetailsActivity.this, Index.class);
-                                                startActivity(intent);
-                                            }
+                                            if(response.isSuccessful()) {ThanhtoanZalo();}
+//                                            if(status.equals("TRUE")){
+//                                                flag =1;
+//                                                Toast.makeText(getBaseContext(), "Chờ Thanh toán!", Toast.LENGTH_SHORT).show();
+//
+//                                            }
                                         }
 
                                         @Override
@@ -249,12 +256,11 @@ public class BookingDetailsActivity extends AppCompatActivity {
                                         @Override
                                         public void onResponse(Call<CallbackResultModel> call, Response<CallbackResultModel> response) {
                                             String status = response.body().getSTATUS_OUT();
-                                            if(status.equals("TRUE")){
-                                                ThanhtoanZalo();
-                                                Toast.makeText(getBaseContext(), "Thanh toán thành công!", Toast.LENGTH_SHORT).show();
-                                                Intent intent = new Intent(BookingDetailsActivity.this, Index.class);
-                                                startActivity(intent);
-                                            }
+                                            if(response.isSuccessful()) {ThanhtoanZalo();}
+//                                            if(status.equals("TRUE")){
+//                                               flag=1;
+//                                                Toast.makeText(getBaseContext(), "Chờ Thanh toán!", Toast.LENGTH_SHORT).show();
+//                                            }
                                         }
 
                                         @Override
@@ -281,10 +287,12 @@ public class BookingDetailsActivity extends AppCompatActivity {
 
             }
         });
+//        if(flag ==1){
+//            ThanhtoanZalo();
+//            Toast.makeText(getBaseContext(), "Thanh toán thành công!", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(BookingDetailsActivity.this, Index.class);
+//            startActivity(intent);
+//        }
     }
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        ZaloPaySDK.getInstance().onResult(intent);
-    }
+
 }

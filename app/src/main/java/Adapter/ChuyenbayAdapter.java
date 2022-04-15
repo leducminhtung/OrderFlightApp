@@ -41,7 +41,6 @@ public class ChuyenbayAdapter extends ArrayAdapter<ChuyenBayModel.Items> {
 
         ChuyenBayModel.Items chuyenBayModel =getItem(position);
         txtGiatien.setText(chuyenBayModel.getGv().replace(".00","")+"đ");
-
         txtCangdi.setText(chuyenBayModel.getMacangdi());
         txtCangden.setText(chuyenBayModel.getMacangden());
         txtGiodi.setText(chuyenBayModel.getGiobay());

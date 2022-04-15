@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="History"
+        android:text="LỊCH SỬ GIAO DỊCH"
         android:textColor="@color/white"
         android:background="@drawable/header_background2"
         android:fontFamily="@font/baloo"
@@ -33,15 +33,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             >
 
-            <SearchView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
 
-                android:background="@drawable/search_icon_background"
-                >
-
-            </SearchView>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

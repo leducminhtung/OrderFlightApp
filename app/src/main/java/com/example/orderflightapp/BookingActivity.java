@@ -153,7 +153,7 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String item = parent.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext(),"Item: "+item, Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -161,7 +161,7 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String item = parent.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext(),"Item: "+item, Toast.LENGTH_SHORT).show();
+
             }
         });
     }
@@ -202,11 +202,11 @@ public class BookingActivity extends AppCompatActivity implements NumberPicker.O
                 for(int i=0;i<cangBayAdapter.size();i++){
                   if(noiden.equals(cangBayAdapter.get(i).getTencang())) {
                       noiden = cangBayAdapter.get(i).getMacang();
-                      Toast.makeText(this, noiden, Toast.LENGTH_SHORT).show();
+
                   }
                     if(noidi.equals(cangBayAdapter.get(i).getTencang())) {
                         noidi = cangBayAdapter.get(i).getMacang();
-                        Toast.makeText(this, noidi, Toast.LENGTH_SHORT).show();
+
                     }
                 }
                 Call<ChuyenBayModel> call = methods.GetChuyenBayTH(noidi, noiden, ngaydi);

@@ -9,14 +9,13 @@
     tools:context=".Index">
 
     <LinearLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:orientation="horizontal"
-        android:background="@drawable/header_background"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
-        >
+        android:background="@drawable/header_background"
+        android:orientation="horizontal"
+        android:padding="5dp">
 
         <ImageView
             android:layout_width="96dp"
@@ -28,18 +27,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Xin chào"
-            android:fontFamily="@font/baloo"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="10dp"
             android:backgroundTint="@color/md_white_1000"
+            android:fontFamily="@font/baloo"
             android:gravity="center"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            tools:ignore="ExtraText"
+            android:text="Xin chào"
             android:textSize="20dp"
-            />
+            tools:ignore="ExtraText" />
 
         <TextView
             android:id="@+id/txtCustomer"
@@ -58,19 +56,19 @@
 
 
         <!--        <Button-->
-<!--            android:id="@+id/btnBooking"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginRight="5dp"-->
-<!--            android:backgroundTint="@color/md_white_1000"-->
-<!--            android:fontFamily="@font/baloo"-->
-<!--            android:minWidth="48dp"-->
-<!--            android:minHeight="48dp"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:layout_marginTop="15dp"-->
-<!--            android:onClick="GoToBooking"-->
-<!--            android:text="Booking Flight"-->
-<!--            tools:ignore="ExtraText" />-->
+        <!--            android:id="@+id/btnBooking"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginRight="5dp"-->
+        <!--            android:backgroundTint="@color/md_white_1000"-->
+        <!--            android:fontFamily="@font/baloo"-->
+        <!--            android:minWidth="48dp"-->
+        <!--            android:minHeight="48dp"-->
+        <!--            android:layout_marginLeft="10dp"-->
+        <!--            android:layout_marginTop="15dp"-->
+        <!--            android:onClick="GoToBooking"-->
+        <!--            android:text="Booking Flight"-->
+        <!--            tools:ignore="ExtraText" />-->
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -81,13 +79,12 @@
         <LinearLayout
             android:id="@+id/layoutFlights"
             android:layout_width="166dp"
-            android:layout_height="wrap_content"
+            android:layout_height="198dp"
             android:layout_marginTop="60dp"
             android:background="@drawable/white_rectangle_background"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="15dp"
-
             app:layout_constraintDimensionRatio="H,1:1"
             app:layout_constraintEnd_toStartOf="@+id/layoutFlightToHotel"
             app:layout_constraintStart_toStartOf="parent"
@@ -120,7 +117,7 @@
         <LinearLayout
             android:id="@+id/layoutFlightToHotel"
             android:layout_width="166dp"
-            android:layout_height="wrap_content"
+            android:layout_height="198dp"
             android:layout_marginTop="60dp"
             android:background="@drawable/white_rectangle_background"
             android:gravity="center"
@@ -157,7 +154,7 @@
         <LinearLayout
             android:id="@+id/layoutFlights1"
             android:layout_width="166dp"
-            android:layout_height="wrap_content"
+            android:layout_height="198dp"
             android:layout_marginTop="60dp"
             android:background="@drawable/white_rectangle_background"
             android:gravity="center"
@@ -165,6 +162,7 @@
             android:padding="15dp"
             app:layout_constraintDimensionRatio="H,1:1"
             app:layout_constraintEnd_toStartOf="@+id/layoutFlightToHotel"
+            app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layoutFlights">
 
@@ -191,7 +189,7 @@
         <LinearLayout
             android:id="@+id/layoutFlightToHotel1"
             android:layout_width="166dp"
-            android:layout_height="195dp"
+            android:layout_height="198dp"
             android:layout_marginTop="60dp"
             android:background="@drawable/white_rectangle_background"
             android:gravity="center"
@@ -235,58 +233,58 @@
             app:layout_constraintStart_toStartOf="@+id/layoutFlights"
             app:layout_constraintTop_toBottomOf="@+id/layoutFlights1"></androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_marginBottom="10dp"-->
-<!--        android:gravity="center"-->
-<!--        >-->
-<!--        <TextView-->
-<!--            android:layout_width="300dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textSize="25dp"-->
-<!--            android:gravity="center"-->
-<!--            android:textColor="@color/md_red_500"-->
-<!--            android:fontFamily="@font/baloo"-->
-<!--            android:text="SALE AND DEALS" />-->
-<!--    </LinearLayout>-->
-<!--    <RelativeLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="200dp">-->
-<!--        <ViewFlipper-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_centerHorizontal="true"-->
-<!--            android:id="@+id/v_flipper"-->
-<!--            />-->
-<!--    </RelativeLayout>-->
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_marginBottom="5dp"-->
-<!--        android:gravity="center"-->
-<!--        >-->
-<!--        <TextView-->
-<!--            android:layout_width="300dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textSize="25dp"-->
-<!--            android:gravity="center"-->
-<!--            android:textColor="@color/md_red_500"-->
-<!--            android:fontFamily="@font/baloo"-->
-<!--            android:text="NEWS" />-->
-<!--    </LinearLayout>-->
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:layout_marginBottom="10dp"-->
+    <!--        android:gravity="center"-->
+    <!--        >-->
+    <!--        <TextView-->
+    <!--            android:layout_width="300dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:textSize="25dp"-->
+    <!--            android:gravity="center"-->
+    <!--            android:textColor="@color/md_red_500"-->
+    <!--            android:fontFamily="@font/baloo"-->
+    <!--            android:text="SALE AND DEALS" />-->
+    <!--    </LinearLayout>-->
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="200dp">-->
+    <!--        <ViewFlipper-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_centerHorizontal="true"-->
+    <!--            android:id="@+id/v_flipper"-->
+    <!--            />-->
+    <!--    </RelativeLayout>-->
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:layout_marginBottom="5dp"-->
+    <!--        android:gravity="center"-->
+    <!--        >-->
+    <!--        <TextView-->
+    <!--            android:layout_width="300dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:textSize="25dp"-->
+    <!--            android:gravity="center"-->
+    <!--            android:textColor="@color/md_red_500"-->
+    <!--            android:fontFamily="@font/baloo"-->
+    <!--            android:text="NEWS" />-->
+    <!--    </LinearLayout>-->
 
-<!--    <RelativeLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="200dp"-->
-<!--        android:layout_marginBottom="5dp">-->
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="200dp"-->
+    <!--        android:layout_marginBottom="5dp">-->
 
-<!--        <ViewFlipper-->
-<!--            android:id="@+id/v_flipper1"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_centerHorizontal="true" />-->
-<!--    </RelativeLayout>-->
+    <!--        <ViewFlipper-->
+    <!--            android:id="@+id/v_flipper1"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_centerHorizontal="true" />-->
+    <!--    </RelativeLayout>-->
 
 
 </LinearLayout>
